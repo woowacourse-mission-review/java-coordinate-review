@@ -27,6 +27,10 @@ public class YCoordinate {
         return new YCoordinate(y);
     }
 
+    public int getY() {
+        return y;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;

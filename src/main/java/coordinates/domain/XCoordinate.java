@@ -27,6 +27,10 @@ public class XCoordinate {
         return new XCoordinate(x);
     }
 
+    public int getX() {
+        return x;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
