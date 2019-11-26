@@ -25,12 +25,16 @@ public class CoordinateCalculatorController {
 
     private boolean calculateWithPoints() {
         try {
-            String pointInputs = inputView.inputPoints();
-            Points points = service.parsePointInputs(pointInputs);
+            Points points = inputPoints();
             return false;
         } catch (IllegalArgumentException e) {
             outputView.showExceptionMessage(e);
             return true;
         }
+    }
+
+    private Points inputPoints() {
+        String pointsInput = inputView.inputPoints();
+        return service.parsePointsInput(pointsInput);
     }
 }
