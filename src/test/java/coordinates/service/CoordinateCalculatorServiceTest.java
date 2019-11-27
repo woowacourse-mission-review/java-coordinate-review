@@ -22,7 +22,7 @@ class CoordinateCalculatorServiceTest {
     void parsePointsInput() {
         Points points1 = service.parsePointsInput("(1, 2) - (3, 4)");
         Points points2 = service.parsePointsInput("(1, 2) - (3, 4)-(5, 6)");
-        Points points3 = service.parsePointsInput("(1, 2) - (3, 4)-(5, 6)-(7, 8)");
+        Points points3 = service.parsePointsInput("(1, 2) - (3, 4)-(1, 4)-(3, 2)");
 
         assertThat(points1.size()).isEqualTo(2);
         assertThat(points2.size()).isEqualTo(3);
@@ -37,8 +37,8 @@ class CoordinateCalculatorServiceTest {
 
         assertThat(points3.get(0)).isEqualTo(Point.of(1, 2));
         assertThat(points3.get(1)).isEqualTo(Point.of(3, 4));
-        assertThat(points3.get(2)).isEqualTo(Point.of(5, 6));
-        assertThat(points3.get(3)).isEqualTo(Point.of(7, 8));
+        assertThat(points3.get(2)).isEqualTo(Point.of(1, 4));
+        assertThat(points3.get(3)).isEqualTo(Point.of(3, 2));
     }
 
     @Test
