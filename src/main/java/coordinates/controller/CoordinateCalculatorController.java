@@ -26,6 +26,7 @@ public class CoordinateCalculatorController {
     private boolean calculateWithPoints() {
         try {
             Points points = inputPoints();
+            outputView.showCoordinatesWith(points);
             return false;
         } catch (IllegalArgumentException e) {
             outputView.showExceptionMessage(e);

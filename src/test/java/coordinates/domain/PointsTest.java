@@ -33,4 +33,12 @@ class PointsTest {
         assertThat(points.get(0)).isEqualTo(Point.of(1, 2));
         assertThat(points.get(1)).isEqualTo(Point.of(3, 4));
     }
+
+    @Test
+    void contains() {
+        assertThat(points.contains(1, 2)).isTrue();
+        assertThat(points.contains(3, 4)).isTrue();
+
+        assertThat(points.contains(1, 3)).isFalse();
+    }
 }

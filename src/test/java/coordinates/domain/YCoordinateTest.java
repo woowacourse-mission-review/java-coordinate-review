@@ -34,4 +34,10 @@ class YCoordinateTest {
     void equals() {
         assertThat(yCoordinate).isEqualTo(YCoordinate.from(1));
     }
+
+    @Test
+    void match() {
+        assertThat(yCoordinate.match(1)).isTrue();
+        assertThat(yCoordinate.match(2)).isFalse();
+    }
 }

@@ -43,4 +43,8 @@ public class XCoordinate {
     public int hashCode() {
         return Objects.hash(x);
     }
+
+    public boolean match(final int x) {
+        return this.x == x;
+    }
 }

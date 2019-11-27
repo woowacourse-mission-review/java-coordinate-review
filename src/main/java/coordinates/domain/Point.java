@@ -37,4 +37,8 @@ public class Point {
     public int hashCode() {
         return Objects.hash(xCoordinate, yCoordinate);
     }
+
+    public boolean match(final int x, final int y) {
+        return xCoordinate.match(x) && yCoordinate.match(y);
+    }
 }

@@ -21,4 +21,9 @@ public class Points {
     public Point get(final int index) {
         return innerPoints.get(index);
     }
+
+    public boolean contains(final int x, final int y) {
+        return innerPoints.stream()
+                .anyMatch(point -> point.match(x, y));
+    }
 }
