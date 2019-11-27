@@ -1,5 +1,6 @@
 package coordinates.domain;
 
+import coordinates.exception.DuplicatePointsException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -7,6 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class PointsTest {
 
@@ -21,6 +23,14 @@ class PointsTest {
     @Test
     void create() {
         assertThat(points).isNotNull();
+    }
+
+    @Test
+    void create_DuplicatePointsException() {
+        List<Point> pointList = Arrays.asList(Point.of(1, 2), Point.of(1, 2), Point.of(3, 4));
+        Exception exception = assertThrows(DuplicatePointsException.class, () -> Points.from(pointList));
+
+        assertThat(exception.getMessage()).isEqualTo(DuplicatePointsException.DUPLICATE_POINTS_MESSAGE);
     }
 
     @Test
