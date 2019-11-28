@@ -13,6 +13,7 @@ public class Points {
 
     private static final int KINDS_OF_COORDINATES_IN_RECTANGLE = 2;
     private static final int SIZE_OF_POINTS_IN_SQUARE = 4;
+
     private final List<Point> innerPoints;
 
     private Points(final List<Point> innerPoints) {
