@@ -6,7 +6,7 @@ import coordinates.exception.IllegalFigureCreationException;
 
 public class Line implements Figure {
 
-    public static final int SIZE_OF_POINTS_IN_LINE = 2;
+    private static final int SIZE_OF_POINTS_IN_LINE = 2;
 
     private final Points points;
 
@@ -24,7 +24,7 @@ public class Line implements Figure {
 
     @Override
     public int size() {
-        return points.size();
+        return SIZE_OF_POINTS_IN_LINE;
     }
 
     @Override
