@@ -1,4 +1,4 @@
-package coordinates.domain;
+package coordinates.domain.point;
 
 import coordinates.exception.DuplicatePointsException;
 import coordinates.exception.NotRectangleException;

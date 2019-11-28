@@ -1,4 +1,4 @@
-package coordinates.domain;
+package coordinates.domain.point;
 
 import coordinates.exception.OutOfXCoordinateBoundException;
 import org.junit.jupiter.api.BeforeEach;

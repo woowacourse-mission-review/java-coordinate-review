@@ -1,7 +1,7 @@
 package coordinates.service;
 
-import coordinates.domain.Point;
-import coordinates.domain.Points;
+import coordinates.domain.point.Point;
+import coordinates.domain.point.Points;
 import coordinates.exception.IllegalPointsException;
 
 import java.util.Arrays;

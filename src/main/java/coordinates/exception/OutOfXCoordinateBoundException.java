@@ -1,6 +1,6 @@
 package coordinates.exception;
 
-import coordinates.domain.XCoordinate;
+import coordinates.domain.point.XCoordinate;
 
 public class OutOfXCoordinateBoundException extends IllegalArgumentException {
 

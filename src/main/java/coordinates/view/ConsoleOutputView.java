@@ -1,8 +1,8 @@
 package coordinates.view;
 
-import coordinates.domain.Points;
-import coordinates.domain.XCoordinate;
-import coordinates.domain.YCoordinate;
+import coordinates.domain.point.Points;
+import coordinates.domain.point.XCoordinate;
+import coordinates.domain.point.YCoordinate;
 import org.apache.commons.lang3.StringUtils;
 
 public class ConsoleOutputView implements OutputView {

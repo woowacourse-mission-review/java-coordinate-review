@@ -1,6 +1,6 @@
 package coordinates.view;
 
-import coordinates.domain.Points;
+import coordinates.domain.point.Points;
 
 public interface OutputView {
     void showExceptionMessage(Exception e);

@@ -1,4 +1,4 @@
-package coordinates.domain;
+package coordinates.domain.point;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

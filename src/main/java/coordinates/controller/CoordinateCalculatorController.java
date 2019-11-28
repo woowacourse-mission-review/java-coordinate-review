@@ -1,6 +1,6 @@
 package coordinates.controller;
 
-import coordinates.domain.Points;
+import coordinates.domain.point.Points;
 import coordinates.service.CoordinateCalculatorService;
 import coordinates.view.InputView;
 import coordinates.view.OutputView;
