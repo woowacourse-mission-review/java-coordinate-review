@@ -4,6 +4,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.offset;
 
 class PointTest {
 
@@ -32,5 +33,11 @@ class PointTest {
 
         assertThat(point.match(1, 3)).isFalse();
         assertThat(point.match(3, 2)).isFalse();
+    }
+
+    @Test
+    void calculateDistanceTo() {
+        Point point2 = Point.of(3, 4);
+        assertThat(point.calculateDistanceTo(point2)).isEqualTo(2.828, offset(0.00099));
     }
 }

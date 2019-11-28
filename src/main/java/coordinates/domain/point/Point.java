@@ -17,11 +17,11 @@ public class Point {
     }
 
     public int getX() {
-        return xCoordinate.getX();
+        return xCoordinate.getValue();
     }
 
     public int getY() {
-        return yCoordinate.getY();
+        return yCoordinate.getValue();
     }
 
     @Override
@@ -40,5 +40,12 @@ public class Point {
 
     public boolean match(final int x, final int y) {
         return xCoordinate.match(x) && yCoordinate.match(y);
+    }
+
+    public double calculateDistanceTo(final Point point) {
+        final UnitCoordinate differenceBetweenX = this.xCoordinate.calculatePositiveDifference(point.xCoordinate);
+        final UnitCoordinate differenceBetweenY = this.yCoordinate.calculatePositiveDifference(point.yCoordinate);
+
+        return Math.sqrt(differenceBetweenX.square() + differenceBetweenY.square());
     }
 }

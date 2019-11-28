@@ -19,7 +19,7 @@ class YCoordinateTest {
     @Test
     void create() {
         assertThat(yCoordinate).isNotNull();
-        assertThat(yCoordinate.getY()).isEqualTo(1);
+        assertThat(yCoordinate.getValue()).isEqualTo(1);
     }
 
     @Test
@@ -28,16 +28,5 @@ class YCoordinateTest {
         Exception exception = assertThrows(OutOfYCoordinateBoundException.class, () -> YCoordinate.from(25));
 
         assertThat(exception.getMessage()).isEqualTo(OutOfYCoordinateBoundException.OUT_OF_Y_COORDINATE_BOUND_MESSAGE);
-    }
-
-    @Test
-    void equals() {
-        assertThat(yCoordinate).isEqualTo(YCoordinate.from(1));
-    }
-
-    @Test
-    void match() {
-        assertThat(yCoordinate.match(1)).isTrue();
-        assertThat(yCoordinate.match(2)).isFalse();
     }
 }
