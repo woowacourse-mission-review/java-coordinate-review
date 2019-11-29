@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class Rectangle implements Figure {
 
-    private static final int SIZE_OF_POINTS_IN_RECTANGLE = 4;
+    public static final int SIZE_OF_POINTS_IN_RECTANGLE = 4;
 
     private final Points points;
 

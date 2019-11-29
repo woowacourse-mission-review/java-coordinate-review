@@ -6,7 +6,7 @@ import coordinates.exception.IllegalFigureCreationException;
 
 public class Line implements Figure {
 
-    private static final int SIZE_OF_POINTS_IN_LINE = 2;
+    public static final int SIZE_OF_POINTS_IN_LINE = 2;
 
     private final Points points;
 

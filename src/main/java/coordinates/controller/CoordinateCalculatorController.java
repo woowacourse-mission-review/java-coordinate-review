@@ -1,5 +1,7 @@
 package coordinates.controller;
 
+import coordinates.domain.figure.Figure;
+import coordinates.domain.figure.FigureFactory;
 import coordinates.domain.point.Points;
 import coordinates.service.CoordinateCalculatorService;
 import coordinates.view.InputView;
@@ -28,7 +30,8 @@ public class CoordinateCalculatorController {
             Points points = inputPoints();
             outputView.showCoordinatesWith(points);
 
-
+            FigureFactory figureFactory = FigureFactory.getInstance();
+            Figure figure = figureFactory.create(points);
             return false;
         } catch (IllegalArgumentException e) {
             outputView.showExceptionMessage(e);

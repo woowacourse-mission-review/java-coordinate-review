@@ -10,7 +10,7 @@ import java.util.stream.IntStream;
 
 public class Triangle implements Figure {
 
-    private static final int SIZE_OF_POINTS_IN_TRIANGLE = 3;
+    public static final int SIZE_OF_POINTS_IN_TRIANGLE = 3;
     private static final int FIRST_INDEX_OF_POINTS = 0;
     private static final int HALF_DIVISOR = 2;
 
