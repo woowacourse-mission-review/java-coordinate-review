@@ -33,6 +33,10 @@ public class Triangle implements Figure {
         return SIZE_OF_POINTS_IN_TRIANGLE;
     }
 
+    /**
+     * This calculation process is dependent on the Heron's formula
+     * https://en.wikipedia.org/wiki/Heron%27s_formula
+     */
     @Override
     public double area() {
         List<Double> distances = calculateDistances();
