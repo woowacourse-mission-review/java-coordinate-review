@@ -1,6 +1,6 @@
 package coordinates.exception;
 
-import coordinates.domain.point.YCoordinate;
+import coordinates.domain.point.unitcoordinate.YCoordinate;
 
 public class OutOfYCoordinateBoundException extends IllegalArgumentException {
 

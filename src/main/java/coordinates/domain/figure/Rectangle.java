@@ -2,7 +2,7 @@ package coordinates.domain.figure;
 
 import coordinates.domain.point.Point;
 import coordinates.domain.point.Points;
-import coordinates.domain.point.UnitCoordinate;
+import coordinates.domain.point.unitcoordinate.UnitCoordinate;
 import coordinates.exception.IllegalFigureCreationException;
 
 import java.util.function.BinaryOperator;

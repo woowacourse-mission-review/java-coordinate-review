@@ -1,4 +1,4 @@
-package coordinates.domain.point;
+package coordinates.domain.point.unitcoordinate;
 
 public class RelativeCoordinate extends UnitCoordinate {
 

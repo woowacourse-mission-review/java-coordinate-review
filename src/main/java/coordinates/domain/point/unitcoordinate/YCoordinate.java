@@ -1,4 +1,4 @@
-package coordinates.domain.point;
+package coordinates.domain.point.unitcoordinate;
 
 import coordinates.exception.OutOfYCoordinateBoundException;
 

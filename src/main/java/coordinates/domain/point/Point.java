@@ -1,5 +1,9 @@
 package coordinates.domain.point;
 
+import coordinates.domain.point.unitcoordinate.UnitCoordinate;
+import coordinates.domain.point.unitcoordinate.XCoordinate;
+import coordinates.domain.point.unitcoordinate.YCoordinate;
+
 import java.util.Objects;
 
 public class Point {
