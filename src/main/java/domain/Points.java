@@ -1,7 +1,11 @@
 package domain;
 
+import exception.DuplicatePointsException;
+
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Points {
@@ -14,9 +18,17 @@ public class Points {
     public Points(String userInput) {
         userInput = userInput.replaceAll(WHITE_SPACE,EMPTY_SPACE);
         List<String> parsedUserInput = parse(userInput);
+        checkDuplicates(parsedUserInput);
         this.points = parsedUserInput.stream()
                 .map(Point::new)
                 .collect(Collectors.toList());
+    }
+
+    private void checkDuplicates(List<String> parsedUserInput) {
+        Set<String> uniqueUserInput = new HashSet<>(parsedUserInput);
+        if (uniqueUserInput.size() != parsedUserInput.size()) {
+            throw new DuplicatePointsException();
+        }
     }
 
     private List<String> parse(String userInput) {
