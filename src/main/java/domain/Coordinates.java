@@ -1,5 +1,7 @@
 package domain;
 
+import exception.UnavailabeCoordinateException;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.IntStream;
@@ -15,6 +17,10 @@ public class Coordinates {
     }
 
     public static Coordinate retrieveValue(int coordinate) {
+        Coordinate retrievedCoordinate = coordinates.get(coordinate);
+        if (retrievedCoordinate == null) {
+            throw new UnavailabeCoordinateException();
+        }
         return coordinates.get(coordinate);
     }
 
