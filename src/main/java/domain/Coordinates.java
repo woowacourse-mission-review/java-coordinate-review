@@ -21,7 +21,7 @@ public class Coordinates {
         if (retrievedCoordinate == null) {
             throw new UnavailabeCoordinateException();
         }
-        return coordinates.get(coordinate);
+        return retrievedCoordinate;
     }
 
     public static int size() {

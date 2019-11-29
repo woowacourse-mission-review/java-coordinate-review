@@ -12,5 +12,4 @@ class CoordinateTest {
         Coordinate coordinate = new Coordinate(1);
         assertThat(coordinate.getValue()).isEqualTo(1);
     }
-
 }
