@@ -24,6 +24,14 @@ public class Point {
         return yCoordinate.getValue();
     }
 
+    public XCoordinate getXCoordinate() {
+        return xCoordinate;
+    }
+
+    public YCoordinate getYCoordinate() {
+        return yCoordinate;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;

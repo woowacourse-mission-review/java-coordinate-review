@@ -18,10 +18,18 @@ public class UnitCoordinate {
         return this.value == value;
     }
 
-    public UnitCoordinate calculatePositiveDifference(final UnitCoordinate unitCoordinate) {
+    public RelativeCoordinate calculatePositiveDifference(final UnitCoordinate unitCoordinate) {
         final int positiveDifference = Math.abs(this.value - unitCoordinate.value);
 
-        return UnitCoordinatePool.get(positiveDifference);
+        return RelativeCoordinatePool.get(positiveDifference);
+    }
+
+    public int square() {
+        return value * value;
+    }
+
+    public double multiply(UnitCoordinate unitCoordinate) {
+        return this.value * unitCoordinate.value;
     }
 
     @Override
@@ -35,9 +43,5 @@ public class UnitCoordinate {
     @Override
     public int hashCode() {
         return Objects.hash(value);
-    }
-
-    public int square() {
-        return value * value;
     }
 }

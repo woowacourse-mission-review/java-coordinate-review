@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Points {
 
@@ -70,5 +71,9 @@ public class Points {
     public boolean contains(final int x, final int y) {
         return innerPoints.stream()
                 .anyMatch(point -> point.match(x, y));
+    }
+
+    public Stream<Point> stream() {
+        return innerPoints.stream();
     }
 }

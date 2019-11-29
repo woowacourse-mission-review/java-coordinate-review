@@ -30,12 +30,17 @@ class UnitCoordinateTest {
     void calculatePositiveDifference() {
         UnitCoordinate unitCoordinate2 = UnitCoordinatePool.get(10);
 
-        assertThat(unitCoordinate.calculatePositiveDifference(unitCoordinate2)).isEqualTo(UnitCoordinatePool.get(8));
-        assertThat(unitCoordinate2.calculatePositiveDifference(unitCoordinate)).isEqualTo(UnitCoordinatePool.get(8));
+        assertThat(unitCoordinate.calculatePositiveDifference(unitCoordinate2)).isEqualTo(RelativeCoordinatePool.get(8));
+        assertThat(unitCoordinate2.calculatePositiveDifference(unitCoordinate)).isEqualTo(RelativeCoordinatePool.get(8));
     }
 
     @Test
     void square() {
         assertThat(unitCoordinate.square()).isEqualTo(4);
+    }
+
+    @Test
+    void multiply() {
+        assertThat(unitCoordinate.multiply(UnitCoordinatePool.get(3))).isEqualTo(6.0);
     }
 }
