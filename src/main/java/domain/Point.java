@@ -17,7 +17,6 @@ public class Point {
     public Point(String rawCoordinates) {
         List<String> coordinates = Arrays.asList(rawCoordinates.split(COORDINATE_DELIMITER));
         checkCoordinatesQuantity(coordinates);
-
         try {
             this.xCoordinate = Coordinates.retrieveValue(Integer.parseInt(coordinates.get(X_COORDINATE_POSITION)));
             this.yCoordinate = Coordinates.retrieveValue(Integer.parseInt(coordinates.get(Y_COORDINATE_POSITION)));

@@ -39,4 +39,8 @@ public class Points {
     public Point getPointAt(int index) {
         return points.get(index);
     }
+
+    public boolean isRightKey(int numberOfPoints) {
+        return numberOfPoints == points.size();
+    }
 }
