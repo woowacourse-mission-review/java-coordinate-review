@@ -19,7 +19,6 @@ public class Triangle extends AbstractFigure {
         return SIZE_OF_POINTS;
     }
 
-    // TODO: 2019/12/01 refactoring
     // Heron's formula
     @Override
     public double area() {
