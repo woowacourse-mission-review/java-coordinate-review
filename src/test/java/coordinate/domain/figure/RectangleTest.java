@@ -41,9 +41,19 @@ class RectangleTest {
     }
 
     @Test
-    void areaTest() {
+    void areaTest1() {
         final double expected = 100;
 
         assertThat(rectangle.area()).isEqualTo(expected, offset(0.099));
+    }
+
+    @Test
+    void areaTest2() {
+        //  (10,10)-(22,10)-(22,18)-(10,18)
+        final PointGroup pointGroup = PointGroup.of(List.of(Point.of(10, 10), Point.of(22, 18), Point.of(22, 10), Point.of(10, 18)));
+        final Rectangle rectangle = Rectangle.of(pointGroup);
+
+        assertThat(rectangle.area()).isEqualTo(96, offset(0.099));
+
     }
 }

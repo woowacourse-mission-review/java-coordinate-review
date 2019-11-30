@@ -25,9 +25,9 @@ public class Rectangle extends AbstractFigure {
 
     @Override
     public double area() {
-        final double ySideLength = pointGroup.get(0).distanceTo(pointGroup.get(1));
-        final double xSideLength = pointGroup.get(2).distanceTo(pointGroup.get(3));
-        return xSideLength * ySideLength;
+        final double ySideLength = pointGroup.get(0).distanceYTo(pointGroup.get(3));
+        final double xSideLength = pointGroup.get(1).distanceXTo(pointGroup.get(2));
+        return Math.abs(xSideLength * ySideLength);
     }
 
     @Override
