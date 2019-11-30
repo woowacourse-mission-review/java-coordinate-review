@@ -5,8 +5,8 @@ import java.util.stream.Stream;
 
 public enum FigureFactory {
     LINE(Line.SIZE_OF_POINTS, Line::new),
-    TRIANGLE(Line.SIZE_OF_POINTS, Line::new),
-    RECTANGLE(Line.SIZE_OF_POINTS, Line::new);
+    TRIANGLE(Triangle.SIZE_OF_POINTS, Triangle::new),
+    RECTANGLE(Rectangle.SIZE_OF_POINTS, Rectangle::new);
 
     private final int sizeOfPointGroup;
     private final Function<PointGroup, Figure> figureGenerator;

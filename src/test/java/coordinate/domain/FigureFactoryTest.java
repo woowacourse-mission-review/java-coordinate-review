@@ -19,18 +19,18 @@ class FigureFactoryTest {
 
     @Test
     void createTriangleTest() {
-        final PointGroup pointGroup = PointGroup.of(List.of(Point.of(10, 10), Point.of(14, 15)));
+        final PointGroup pointGroup = PointGroup.of(List.of(Point.of(10, 10), Point.of(14, 15), Point.of(20, 8)));
         final Figure figure = FigureFactory.create(pointGroup);
 
-        assertThat(figure.getClass()).isEqualTo(Line.class);
+        assertThat(figure.getClass()).isEqualTo(Triangle.class);
     }
 
     @Test
     void createRectangleTest() {
-        final PointGroup pointGroup = PointGroup.of(List.of(Point.of(10, 10), Point.of(14, 15)));
+        final PointGroup pointGroup = PointGroup.of(List.of(Point.of(10, 10), Point.of(10, 20), Point.of(20, 10), Point.of(20, 20)));
         final Figure figure = FigureFactory.create(pointGroup);
 
-        assertThat(figure.getClass()).isEqualTo(Line.class);
+        assertThat(figure.getClass()).isEqualTo(Rectangle.class);
     }
 
     @Test
