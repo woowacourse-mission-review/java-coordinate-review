@@ -28,7 +28,7 @@ public class Graph {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = Coordinates.NUMBER_UPPER_BOUNDARY; i > 0; i--) {
-            stringBuilder.append(String.format("%3s", i +"|")).append(rows.get(i).toString()).append("\n");
+            stringBuilder.append(String.format("%3s", i + "|")).append(rows.get(i).toString()).append("\n");
         }
         stringBuilder.append(String.format("%3s", 0 + "|")).append(rows.get(0).toString());
 

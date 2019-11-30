@@ -32,7 +32,7 @@ class CoordinateTest {
     void calculate_squared_distance2() {
         Coordinate coordinate1 = new Coordinate(1);
         Coordinate coordinate2 = new Coordinate(24);
-        assertThat(coordinate1.calculateSquaredDistance(coordinate2)).isEqualTo(Math.pow(23,2));
+        assertThat(coordinate1.calculateSquaredDistance(coordinate2)).isEqualTo(Math.pow(23, 2));
     }
 
     @Test
@@ -40,6 +40,6 @@ class CoordinateTest {
     void calculate_squared_distance3() {
         Coordinate coordinate1 = new Coordinate(-5);
         Coordinate coordinate2 = new Coordinate(24);
-        assertThat(coordinate1.calculateSquaredDistance(coordinate2)).isEqualTo(Math.pow(-29,2));
+        assertThat(coordinate1.calculateSquaredDistance(coordinate2)).isEqualTo(Math.pow(-29, 2));
     }
 }

@@ -1,7 +1,7 @@
-import domain.graph.Graph;
 import domain.Points;
 import domain.figure.Figure;
 import domain.figure.FigureFactory;
+import domain.graph.Graph;
 import exception.DuplicatePointsException;
 import exception.UnavailabeCoordinateException;
 import view.InputView;
