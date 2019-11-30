@@ -54,8 +54,6 @@ public class Coordinate {
 
     @Override
     public String toString() {
-        return "Coordinate{" +
-                "value=" + value +
-                '}';
+        return String.valueOf(value);
     }
 }
