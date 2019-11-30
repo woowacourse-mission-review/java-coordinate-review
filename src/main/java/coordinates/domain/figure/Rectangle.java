@@ -7,7 +7,6 @@ import coordinates.exception.IllegalFigureCreationException;
 
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
-import java.util.stream.Collectors;
 
 public class Rectangle implements Figure {
 
@@ -40,12 +39,11 @@ public class Rectangle implements Figure {
         return distanceOfX.multiply(distanceOfY);
     }
 
-    private <T> T calculateSideLength(Function<Point, T> getCoordinateOfPoint, BinaryOperator<T> calculatePositiveDifference) {
-        return points.stream()
-                .map(getCoordinateOfPoint)
-                .collect(Collectors.toSet())
+    private <T> T calculateSideLength(Function<Point, T> functionOfGettingCoordinate
+            , BinaryOperator<T> functionOfCalculatingPositiveDifference) {
+        return points.executeWith(functionOfGettingCoordinate)
                 .stream()
-                .reduce(calculatePositiveDifference)
+                .reduce(functionOfCalculatingPositiveDifference)
                 .orElseThrow(RuntimeException::new);
     }
 }

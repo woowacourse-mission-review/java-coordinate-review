@@ -6,9 +6,9 @@ import coordinates.exception.NotRectangleException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.function.ToIntFunction;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class Points {
 
@@ -73,7 +73,9 @@ public class Points {
                 .anyMatch(point -> point.match(x, y));
     }
 
-    public Stream<Point> stream() {
-        return innerPoints.stream();
+    public <T> Set<T> executeWith(Function<Point, T> functionOfPoint) {
+        return innerPoints.stream()
+                .map(functionOfPoint)
+                .collect(Collectors.toSet());
     }
 }

@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -59,5 +60,14 @@ class PointsTest {
         assertThat(points.contains(3, 4)).isTrue();
 
         assertThat(points.contains(1, 3)).isFalse();
+    }
+
+    @Test
+    void executeWith() {
+        Set<Integer> pointSet = points.executeWith(Point::getX);
+
+        assertThat(pointSet.size()).isEqualTo(2);
+        assertThat(pointSet.contains(1)).isTrue();
+        assertThat(pointSet.contains(3)).isTrue();
     }
 }
