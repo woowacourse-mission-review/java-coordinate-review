@@ -13,7 +13,10 @@ public class PointGroup {
     private final List<Point> points;
 
     private PointGroup(final List<Point> points) {
-        this.points = points.stream().sorted(Comparator.comparingInt(Point::getX)).collect(Collectors.toList());
+        this.points = points.stream()
+                .sorted(Comparator.comparingInt(Point::getX))
+                .sorted(Comparator.comparingInt(Point::getY))
+                .collect(Collectors.toList());
         validateEmpty();
         validateDuplicate(points);
     }
