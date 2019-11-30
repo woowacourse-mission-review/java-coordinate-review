@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
+import static coordinate.domain.Rectangle.NOT_RECTANGLE_EXCEPTION_MESSAGE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -29,7 +30,7 @@ class RectangleTest {
         final PointGroup pointGroup = PointGroup.of(List.of(Point.of(15, 15), Point.of(10, 20), Point.of(20, 10), Point.of(20, 20)));
         final IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Rectangle.of(pointGroup));
 
-        assertThat(exception.getMessage()).isEqualTo("직사각형이 아닙니다");
+        assertThat(exception.getMessage()).isEqualTo(NOT_RECTANGLE_EXCEPTION_MESSAGE);
     }
 
     @Test

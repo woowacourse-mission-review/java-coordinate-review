@@ -2,8 +2,8 @@ package coordinate.domain;
 
 public class Rectangle extends AbstractFigure {
     static final int SIZE_OF_POINTS = 4;
+    static final String NOT_RECTANGLE_EXCEPTION_MESSAGE = "직사각형이 아닙니다";
 
-    // TODO: 2019/11/30 유효성 검사 리팩토링
     public Rectangle(final PointGroup pointGroup) {
         super(pointGroup, SIZE_OF_POINTS);
         validateRectangle(pointGroup);
@@ -14,14 +14,13 @@ public class Rectangle extends AbstractFigure {
         double diagonal1 = Math.hypot(pointGroup.get(0).distanceTo(pointGroup.get(2)), pointGroup.get(0).distanceTo(pointGroup.get(2)));
         double diagonal2 = Math.hypot(pointGroup.get(1).distanceTo(pointGroup.get(3)), pointGroup.get(1).distanceTo(pointGroup.get(3)));
         if (diagonal1 != diagonal2) {
-            throw new IllegalArgumentException("직사각형이 아닙니다");
+            throw new IllegalArgumentException(NOT_RECTANGLE_EXCEPTION_MESSAGE);
         }
     }
 
     public static Rectangle of(final PointGroup pointGroup) {
         return new Rectangle(pointGroup);
     }
-
 
     // TODO: 2019/11/30 깔끔하게 리팩토링
     @Override
