@@ -31,14 +31,6 @@ public class Point {
         }
     }
 
-    public Coordinate getxCoordinate() {
-        return xCoordinate;
-    }
-
-    public Coordinate getyCoordinate() {
-        return yCoordinate;
-    }
-
     public double calculateDistance(Point otherPoint) {
         double xSquared = this.xCoordinate.calculateSquaredDistance(otherPoint.xCoordinate);
         double ySquared = this.yCoordinate.calculateSquaredDistance(otherPoint.yCoordinate);
@@ -51,6 +43,14 @@ public class Point {
 
     public boolean doesHaveSameYCoordinateOnly(Point otherPoint) {
         return (this.yCoordinate == otherPoint.yCoordinate) & (this.xCoordinate != otherPoint.xCoordinate);
+    }
+
+    public Coordinate getxCoordinate() {
+        return xCoordinate;
+    }
+
+    public Coordinate getyCoordinate() {
+        return yCoordinate;
     }
 
     @Override

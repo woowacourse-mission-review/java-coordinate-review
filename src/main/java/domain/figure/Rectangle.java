@@ -1,11 +1,12 @@
 package domain.figure;
 
-import domain.graph.Graph;
 import domain.Points;
+import domain.graph.Graph;
 
 import java.util.List;
 
 public class Rectangle implements Figure {
+    private static final double MULTIPLYING_IDENTITY = 1.0;
     private Points points;
 
     public Rectangle(Points points) {
@@ -27,6 +28,6 @@ public class Rectangle implements Figure {
     public double calculateDistanceOrArea() {
         List<Double> perpendicularSidesSizes = points.findPerpendicularSidesSizes();
         return perpendicularSidesSizes.stream()
-                .reduce(1.0, (a, b) -> a * b);
+                .reduce(MULTIPLYING_IDENTITY, (a, b) -> a * b);
     }
 }
