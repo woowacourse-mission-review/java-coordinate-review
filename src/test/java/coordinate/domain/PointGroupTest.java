@@ -2,9 +2,11 @@ package coordinate.domain;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
 import java.util.List;
 
 import static coordinate.domain.PointGroup.DUPLICATED_POINT_EXCEPTION_MESSAGE;
+import static coordinate.domain.PointGroup.EMPTY_EXCEPTION_MESSAGE;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -17,6 +19,13 @@ class PointGroupTest {
 
         assertThat(pointGroup1.size()).isEqualTo(2);
         assertThat(pointGroup2.size()).isEqualTo(3);
+    }
+
+    @Test
+    void emptyException() {
+        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> PointGroup.of(Collections.emptyList()));
+
+        assertThat(exception.getMessage()).isEqualTo(EMPTY_EXCEPTION_MESSAGE);
     }
 
     @Test
