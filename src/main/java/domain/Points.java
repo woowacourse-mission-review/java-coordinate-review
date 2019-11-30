@@ -64,9 +64,9 @@ public class Points {
     }
 
     public List<Double> findPerpendicularSidesSizes() {
-        List<Point> perpendiculatPoints = collectPerpendicularPointsOf(points.get(STARTING_POINT_INDEX));
+        List<Point> perpendicularPoints = collectPerpendicularPointsOf(points.get(STARTING_POINT_INDEX));
 
-        return  perpendiculatPoints.stream()
+        return  perpendicularPoints.stream()
                 .map(point -> points.get(STARTING_POINT_INDEX).calculateDistance(point))
                 .collect(Collectors.toList());
     }
