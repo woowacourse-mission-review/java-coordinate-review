@@ -11,4 +11,11 @@ class CoordinatesTest {
     void coordinates_constructor_test() {
         assertThat(Coordinates.size()).isEqualTo(25);
     }
+
+    @Test
+    @DisplayName("Coordinates Retrieve Value 테스트")
+    void coordinates_retrieve_test() {
+        Coordinate coordinate = new Coordinate(10);
+        assertThat(coordinate.getValue()).isEqualTo(10);
+    }
 }
