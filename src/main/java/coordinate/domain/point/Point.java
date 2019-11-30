@@ -25,6 +25,14 @@ public class Point {
         return Math.pow(first - second, 2);
     }
 
+    public double distanceXTo(final Point other) {
+        return this.getX() - other.getX();
+    }
+
+    public double distanceYTo(final Point other) {
+        return this.getY() - other.getY();
+    }
+
     public int getX() {
         return x.value();
     }
