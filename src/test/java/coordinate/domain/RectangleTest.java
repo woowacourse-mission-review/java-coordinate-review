@@ -4,7 +4,6 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static coordinate.domain.Rectangle.POINTS_SIZE_NOT_MATCH_EXCEPTION_MESSAGE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -15,10 +14,14 @@ class RectangleTest {
 
     @Test
     void Points_size_4가_아닌_경우_예외처리() {
+        // given
+        final String actualMessage = String.format(AbstractFigure.POINTS_SIZE_NOT_MATCH_EXCEPTION_MESSAGE, rectangle.getName(), Rectangle.SIZE_OF_POINTS);
         final PointGroup pointGroup = PointGroup.of(List.of(Point.of(10, 10), Point.of(14, 15), Point.of(14, 19)));
+
+        // when & then
         final IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> rectangle.of(pointGroup));
 
-        assertThat(exception.getMessage()).isEqualTo(POINTS_SIZE_NOT_MATCH_EXCEPTION_MESSAGE);
+        assertThat(exception.getMessage()).isEqualTo(actualMessage);
     }
 
     @Test
