@@ -18,10 +18,10 @@ public class UnitCoordinate {
         return this.value == value;
     }
 
-    public RelativeCoordinate calculatePositiveDifference(final UnitCoordinate unitCoordinate) {
+    public UnitCoordinate calculatePositiveDifference(final UnitCoordinate unitCoordinate) {
         final int positiveDifference = Math.abs(this.value - unitCoordinate.value);
 
-        return RelativeCoordinatePool.get(positiveDifference);
+        return UnitCoordinatePool.get(positiveDifference);
     }
 
     public int square() {
