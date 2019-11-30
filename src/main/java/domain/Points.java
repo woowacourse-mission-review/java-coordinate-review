@@ -59,4 +59,8 @@ public class Points {
             throw new RectangleException();
         }
     }
+
+    public double calculateDistance(int originPointIndex, int otherPointIndex) {
+        return points.get(originPointIndex).calculateDistance(points.get(otherPointIndex));
+    }
 }

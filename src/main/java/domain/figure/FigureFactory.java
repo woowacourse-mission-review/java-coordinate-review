@@ -2,6 +2,7 @@ package domain.figure;
 
 import domain.Points;
 import exception.NoSuchFigureException;
+import exception.RectangleException;
 
 import java.util.Arrays;
 import java.util.function.Function;
@@ -26,6 +27,11 @@ public enum FigureFactory {
                 .orElseThrow(NoSuchFigureException::new)
                 .creatingFunction;
 
-        return creatingFunction.apply(points);
+        try {
+            return creatingFunction.apply(points);
+        } catch(RectangleException e) {
+            System.out.println(e.getMessage());
+            throw new RectangleException();
+        }
     }
 }

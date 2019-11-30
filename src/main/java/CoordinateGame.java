@@ -1,3 +1,4 @@
+import domain.Graph;
 import domain.Points;
 import domain.figure.Figure;
 import domain.figure.FigureFactory;
@@ -18,6 +19,7 @@ public class CoordinateGame {
     public void start() {
         Points points = registerPoints();
         Figure figure = FigureFactory.createFigure(points);
+        Graph graph  = figure.drawGraph();
     }
 
     private Points registerPoints() {

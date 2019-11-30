@@ -39,6 +39,12 @@ public class Point {
         return yCoordinate;
     }
 
+    public double calculateDistance(Point otherPoint) {
+        double xSquared = this.xCoordinate.calculateSquaredDistance(otherPoint.xCoordinate);
+        double ySquared = this.yCoordinate.calculateSquaredDistance(otherPoint.yCoordinate);
+        return Math.sqrt(xSquared + ySquared);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
