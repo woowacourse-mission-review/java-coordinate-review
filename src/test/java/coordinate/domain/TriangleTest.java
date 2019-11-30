@@ -14,10 +14,14 @@ class TriangleTest {
 
     @Test
     void Points_size_3이_아닌_경우_예외처리() {
+        // given
+        final String actualMessage = String.format(AbstractFigure.POINTS_SIZE_NOT_MATCH_EXCEPTION_MESSAGE, triangle.getName(), Triangle.SIZE_OF_POINTS);
         final PointGroup pointGroup = PointGroup.of(List.of(Point.of(10, 10), Point.of(14, 15)));
+
+        // when & then
         final IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> Triangle.of(pointGroup));
 
-        assertThat(exception.getMessage()).isEqualTo(Triangle.POINTS_SIZE_NOT_MATCH_EXCEPTION_MESSAGE);
+        assertThat(exception.getMessage()).isEqualTo(actualMessage);
     }
 
     @Test
