@@ -8,7 +8,7 @@ import java.util.Set;
 public class PointGroup {
     static final String DUPLICATED_POINT_EXCEPTION_MESSAGE = "Point는 중복될 수 없습니다.";
 
-    final List<Point> points;
+    private final List<Point> points;
 
     private PointGroup(final List<Point> points) {
         this.points = new ArrayList<>(points);
