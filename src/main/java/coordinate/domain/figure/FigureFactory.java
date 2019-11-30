@@ -1,4 +1,6 @@
-package coordinate.domain;
+package coordinate.domain.figure;
+
+import coordinate.domain.point.PointGroup;
 
 import java.util.function.Function;
 import java.util.stream.Stream;

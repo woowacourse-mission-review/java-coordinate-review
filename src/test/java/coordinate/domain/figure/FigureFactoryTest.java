@@ -1,5 +1,7 @@
-package coordinate.domain;
+package coordinate.domain.figure;
 
+import coordinate.domain.point.Point;
+import coordinate.domain.point.PointGroup;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

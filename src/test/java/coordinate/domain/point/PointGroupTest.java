@@ -1,12 +1,12 @@
-package coordinate.domain;
+package coordinate.domain.point;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.Collections;
 import java.util.List;
 
-import static coordinate.domain.PointGroup.DUPLICATED_POINT_EXCEPTION_MESSAGE;
-import static coordinate.domain.PointGroup.EMPTY_EXCEPTION_MESSAGE;
+import static coordinate.domain.point.PointGroup.DUPLICATED_POINT_EXCEPTION_MESSAGE;
+import static coordinate.domain.point.PointGroup.EMPTY_EXCEPTION_MESSAGE;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

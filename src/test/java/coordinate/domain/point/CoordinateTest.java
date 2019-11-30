@@ -1,9 +1,9 @@
-package coordinate.domain;
+package coordinate.domain.point;
 
 import org.junit.jupiter.api.Test;
 
-import static coordinate.domain.Coordinate.MAX_VALUE;
-import static coordinate.domain.Coordinate.MIN_VALUE;
+import static coordinate.domain.point.Coordinate.MAX_VALUE;
+import static coordinate.domain.point.Coordinate.MIN_VALUE;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

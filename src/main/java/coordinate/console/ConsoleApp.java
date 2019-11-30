@@ -2,10 +2,10 @@ package coordinate.console;
 
 import coordinate.console.view.InputView;
 import coordinate.console.view.OutputView;
-import coordinate.domain.Figure;
-import coordinate.domain.FigureFactory;
-import coordinate.domain.PointGroup;
-import coordinate.domain.PointGroupFactory;
+import coordinate.domain.figure.Figure;
+import coordinate.domain.figure.FigureFactory;
+import coordinate.domain.point.PointGroup;
+import coordinate.domain.point.PointGroupFactory;
 
 public class ConsoleApp {
 

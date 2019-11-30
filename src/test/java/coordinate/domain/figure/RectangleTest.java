@@ -1,10 +1,12 @@
-package coordinate.domain;
+package coordinate.domain.figure;
 
+import coordinate.domain.point.Point;
+import coordinate.domain.point.PointGroup;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-import static coordinate.domain.Rectangle.NOT_RECTANGLE_EXCEPTION_MESSAGE;
+import static coordinate.domain.figure.Rectangle.NOT_RECTANGLE_EXCEPTION_MESSAGE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.offset;
 import static org.junit.jupiter.api.Assertions.assertThrows;

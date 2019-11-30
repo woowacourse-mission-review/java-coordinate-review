@@ -1,4 +1,4 @@
-package coordinate.domain;
+package coordinate.domain.point;
 
 import org.junit.jupiter.api.Test;
 

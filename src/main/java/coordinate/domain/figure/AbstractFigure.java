@@ -1,4 +1,6 @@
-package coordinate.domain;
+package coordinate.domain.figure;
+
+import coordinate.domain.point.PointGroup;
 
 public abstract class AbstractFigure implements Figure {
     public static final String POINTS_SIZE_NOT_MATCH_EXCEPTION_MESSAGE = "%s의 점(Point)은 %d개야 합니다.";

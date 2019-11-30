@@ -1,6 +1,6 @@
 package coordinate.console.view;
 
-import coordinate.domain.Figure;
+import coordinate.domain.figure.Figure;
 
 public class OutputView {
     public void printArea(final Figure figure) {

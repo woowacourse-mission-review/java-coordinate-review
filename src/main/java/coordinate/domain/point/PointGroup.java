@@ -1,4 +1,4 @@
-package coordinate.domain;
+package coordinate.domain.point;
 
 import java.util.Comparator;
 import java.util.HashSet;
@@ -23,7 +23,6 @@ public class PointGroup {
             throw new IllegalArgumentException(EMPTY_EXCEPTION_MESSAGE);
         }
     }
-
 
     private void validateDuplicate(final List<Point> points) {
         final Set<Point> set = new HashSet<>(points);

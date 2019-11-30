@@ -1,10 +1,10 @@
-package coordinate.domain;
+package coordinate.domain.point;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import static coordinate.domain.PointGroupFactory.NOT_VALID_INPUT_EXCEPTION_MESSAGE;
+import static coordinate.domain.point.PointGroupFactory.NOT_VALID_INPUT_EXCEPTION_MESSAGE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

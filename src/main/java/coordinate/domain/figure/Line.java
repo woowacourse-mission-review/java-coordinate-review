@@ -1,4 +1,7 @@
-package coordinate.domain;
+package coordinate.domain.figure;
+
+import coordinate.domain.point.Point;
+import coordinate.domain.point.PointGroup;
 
 public class Line extends AbstractFigure {
     static final int SIZE_OF_POINTS = 2;
