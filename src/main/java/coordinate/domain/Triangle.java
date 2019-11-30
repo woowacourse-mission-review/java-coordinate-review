@@ -35,6 +35,6 @@ public class Triangle extends AbstractFigure {
 
     @Override
     public String getName() {
-        return "삼각";
+        return "삼각형";
     }
 }
