@@ -20,7 +20,7 @@ public class Point {
         try {
             this.xCoordinate = Coordinates.retrieveValue(Integer.parseInt(coordinates.get(X_COORDINATE_POSITION)));
             this.yCoordinate = Coordinates.retrieveValue(Integer.parseInt(coordinates.get(Y_COORDINATE_POSITION)));
-        } catch(NumberFormatException e) {
+        } catch (NumberFormatException e) {
             throw new UnavailabeCoordinateException();
         }
     }

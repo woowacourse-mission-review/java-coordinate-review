@@ -19,14 +19,14 @@ public class CoordinateGame {
     public void start() {
         Points points = registerPoints();
         Figure figure = FigureFactory.createFigure(points);
-        Graph graph  = figure.drawGraph();
+        Graph graph = figure.drawGraph();
     }
 
     private Points registerPoints() {
         try {
             String userInput = InputView.askUserInput("좌표를 입력해 주세요!");
             return new Points(userInput);
-        } catch(DuplicatePointsException | UnavailabeCoordinateException e) {
+        } catch (DuplicatePointsException | UnavailabeCoordinateException e) {
             outputView.printErrorMessage(e.getMessage());
             return registerPoints();
         }

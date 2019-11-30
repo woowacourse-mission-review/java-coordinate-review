@@ -26,6 +26,6 @@ public class Rectangle implements Figure {
     public double calculateDistanceOrArea() {
         List<Double> perpendicularSidesSizes = points.findPerpendicularSidesSizes();
         return perpendicularSidesSizes.stream()
-                .reduce(1.0, (a,b) -> a*b);
+                .reduce(1.0, (a, b) -> a * b);
     }
 }

@@ -3,6 +3,7 @@ package domain;
 public class Coordinate {
     private static final int SQUARED = 2;
     private final int value;
+
     public Coordinate(int value) {
         this.value = value;
     }

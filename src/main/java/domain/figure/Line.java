@@ -17,6 +17,6 @@ public class Line implements Figure {
 
     @Override
     public double calculateDistanceOrArea() {
-        return points.calculateDistance(0,1);
+        return points.calculateDistance(0, 1);
     }
 }

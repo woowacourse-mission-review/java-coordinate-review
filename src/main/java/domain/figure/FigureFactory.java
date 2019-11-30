@@ -29,7 +29,7 @@ public enum FigureFactory {
 
         try {
             return creatingFunction.apply(points);
-        } catch(RectangleException e) {
+        } catch (RectangleException e) {
             System.out.println(e.getMessage());
             throw new RectangleException();
         }

@@ -3,12 +3,15 @@ package domain;
 import exception.DuplicatePointsException;
 import exception.RectangleException;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 public class Points {
     private static final String WHITE_SPACE = " ";
-    private static final String EMPTY_SPACE ="";
+    private static final String EMPTY_SPACE = "";
     private static final String POINTS_BRACKET_PATTERN = "\\(|\\)";
     private static final String POINTS_DELIMITER = "-";
     private static final int RECTANGLE_POINT_QUANTITY_REQUIREMENT = 2;
@@ -33,7 +36,7 @@ public class Points {
     }
 
     private List<String> parse(String userInput) {
-        userInput = userInput.replaceAll(POINTS_BRACKET_PATTERN,"");
+        userInput = userInput.replaceAll(POINTS_BRACKET_PATTERN, "");
         return Arrays.asList(userInput.split(POINTS_DELIMITER));
     }
 
@@ -66,7 +69,7 @@ public class Points {
     public List<Double> findPerpendicularSidesSizes() {
         List<Point> perpendicularPoints = collectPerpendicularPointsOf(points.get(STARTING_POINT_INDEX));
 
-        return  perpendicularPoints.stream()
+        return perpendicularPoints.stream()
                 .map(point -> points.get(STARTING_POINT_INDEX).calculateDistance(point))
                 .collect(Collectors.toList());
     }
