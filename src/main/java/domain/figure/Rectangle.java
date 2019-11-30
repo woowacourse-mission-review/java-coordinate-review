@@ -3,6 +3,8 @@ package domain.figure;
 import domain.Graph;
 import domain.Points;
 
+import java.util.List;
+
 public class Rectangle implements Figure {
     private Points points;
 
@@ -22,6 +24,8 @@ public class Rectangle implements Figure {
 
     @Override
     public double calculateDistanceOrArea() {
-        return 0;
+        List<Double> perpendicularSidesSizes = points.findPerpendicularSidesSizes();
+        return perpendicularSidesSizes.stream()
+                .reduce(1.0, (a,b) -> a*b);
     }
 }

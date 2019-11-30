@@ -45,6 +45,14 @@ public class Point {
         return Math.sqrt(xSquared + ySquared);
     }
 
+    public boolean doesHaveSameXCoordinateOnly(Point otherPoint) {
+        return (this.xCoordinate == otherPoint.xCoordinate) & (this.yCoordinate != otherPoint.yCoordinate);
+    }
+
+    public boolean doesHaveSameYCoordinateOnly(Point otherPoint) {
+        return (this.yCoordinate == otherPoint.yCoordinate) & (this.xCoordinate != otherPoint.xCoordinate);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

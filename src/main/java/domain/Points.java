@@ -3,10 +3,7 @@ package domain;
 import exception.DuplicatePointsException;
 import exception.RectangleException;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Points {
@@ -15,6 +12,8 @@ public class Points {
     private static final String POINTS_BRACKET_PATTERN = "\\(|\\)";
     private static final String POINTS_DELIMITER = "-";
     private static final int RECTANGLE_POINT_QUANTITY_REQUIREMENT = 2;
+    private static final int STARTING_POINT_INDEX = 0;
+
     private List<Point> points;
 
     public Points(String userInput) {
@@ -62,5 +61,27 @@ public class Points {
 
     public double calculateDistance(int originPointIndex, int otherPointIndex) {
         return points.get(originPointIndex).calculateDistance(points.get(otherPointIndex));
+    }
+
+    public List<Double> findPerpendicularSidesSizes() {
+        List<Point> perpendiculatPoints = collectPerpendicularPointsOf(points.get(STARTING_POINT_INDEX));
+
+        return  perpendiculatPoints.stream()
+                .map(point -> points.get(STARTING_POINT_INDEX).calculateDistance(point))
+                .collect(Collectors.toList());
+    }
+
+    private List<Point> collectPerpendicularPointsOf(Point point) {
+        Point firstPoint = points.stream()
+                .filter(point::doesHaveSameXCoordinateOnly)
+                .findAny()
+                .orElseThrow(IllegalArgumentException::new);
+
+        Point secondPoint = points.stream()
+                .filter(point::doesHaveSameYCoordinateOnly)
+                .findAny()
+                .orElseThrow(IllegalArgumentException::new);
+
+        return Arrays.asList(firstPoint, secondPoint);
     }
 }
