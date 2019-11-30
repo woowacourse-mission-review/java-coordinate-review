@@ -20,6 +20,18 @@ class PointGroupTest {
     }
 
     @Test
+    void x기준_정렬_확인() {
+        final Point first = Point.of(10, 10);
+        final Point second = Point.of(11, 11);
+        final Point third = Point.of(12, 12);
+        final PointGroup pointGroup = PointGroup.of(List.of(first, second, third));
+
+        assertThat(pointGroup.get(0)).isEqualTo(first);
+        assertThat(pointGroup.get(1)).isEqualTo(second);
+        assertThat(pointGroup.get(2)).isEqualTo(third);
+    }
+
+    @Test
     void 중복_Point_예외처리() {
         List<Point> points = List.of(Point.of(10, 10), Point.of(10, 10));
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> PointGroup.of(points));

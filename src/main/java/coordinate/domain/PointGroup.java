@@ -1,9 +1,10 @@
 package coordinate.domain;
 
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class PointGroup {
     static final String DUPLICATED_POINT_EXCEPTION_MESSAGE = "Point는 중복될 수 없습니다.";
@@ -11,7 +12,7 @@ public class PointGroup {
     private final List<Point> points;
 
     private PointGroup(final List<Point> points) {
-        this.points = new ArrayList<>(points);
+        this.points = points.stream().sorted(Comparator.comparingInt(Point::getX)).collect(Collectors.toList());
         validateDuplicate(points);
     }
 
