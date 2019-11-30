@@ -27,6 +27,6 @@ public class Line extends AbstractFigure {
 
     @Override
     public String getName() {
-        return "삼각형";
+        return "선";
     }
 }

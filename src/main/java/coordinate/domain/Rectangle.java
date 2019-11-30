@@ -38,6 +38,6 @@ public class Rectangle extends AbstractFigure {
 
     @Override
     public String getName() {
-        return "사각형";
+        return "직사각형";
     }
 }
