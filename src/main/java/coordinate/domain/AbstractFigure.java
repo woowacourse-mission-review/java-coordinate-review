@@ -16,7 +16,7 @@ public abstract class AbstractFigure implements Figure {
 
     @Override
     public void validateSize(final int sizeOfPointGroup) {
-        if (pointGroup.size() != sizeOfPointGroup) {
+        if (pointGroup.matchSize(sizeOfPointGroup)) {
             throw new IllegalArgumentException(String.format(POINTS_SIZE_NOT_MATCH_EXCEPTION_MESSAGE, getName(), sizeOfPointGroup));
         }
     }

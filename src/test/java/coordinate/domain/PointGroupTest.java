@@ -17,8 +17,8 @@ class PointGroupTest {
         final PointGroup pointGroup1 = PointGroup.of(List.of(Point.of(10, 10), Point.of(10, 12)));
         final PointGroup pointGroup2 = PointGroup.of(List.of(Point.of(10, 10), Point.of(10, 11), Point.of(11, 12)));
 
-        assertThat(pointGroup1.size()).isEqualTo(2);
-        assertThat(pointGroup2.size()).isEqualTo(3);
+        assertThat(pointGroup1.matchSize(2)).isTrue();
+        assertThat(pointGroup2.matchSize(3)).isTrue();
     }
 
     @Test
@@ -26,6 +26,13 @@ class PointGroupTest {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> PointGroup.of(Collections.emptyList()));
 
         assertThat(exception.getMessage()).isEqualTo(EMPTY_EXCEPTION_MESSAGE);
+    }
+
+    @Test
+    void matchSizeTest() {
+        final PointGroup pointGroup = PointGroup.of(List.of(Point.of(10, 10)));
+
+        assertThat(pointGroup.matchSize(1)).isTrue();
     }
 
     @Test

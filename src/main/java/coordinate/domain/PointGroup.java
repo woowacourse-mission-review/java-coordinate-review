@@ -40,7 +40,7 @@ public class PointGroup {
         return points.get(index);
     }
 
-    public int size() {
-        return points.size();
+    public boolean matchSize(final int size) {
+        return points.size() == size;
     }
 }
