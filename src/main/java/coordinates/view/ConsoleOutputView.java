@@ -1,9 +1,17 @@
 package coordinates.view;
 
+import coordinates.domain.figure.Figure;
+import coordinates.domain.figure.Line;
+import coordinates.domain.figure.Rectangle;
+import coordinates.domain.figure.Triangle;
 import coordinates.domain.point.Points;
 import coordinates.domain.point.unitcoordinate.XCoordinate;
 import coordinates.domain.point.unitcoordinate.YCoordinate;
 import org.apache.commons.lang3.StringUtils;
+
+import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ConsoleOutputView implements OutputView {
 
@@ -16,6 +24,14 @@ public class ConsoleOutputView implements OutputView {
     private static final String CHAR_OF_POINT = "*";
     private static final String CHAR_OF_ORIGIN = "+";
     private static final String EMPTY = "";
+
+    private static final Map<Integer, String> MESSAGES_OF_SHOWING_FIGURE_AREA = new HashMap<>();
+
+    static {
+        MESSAGES_OF_SHOWING_FIGURE_AREA.put(Line.SIZE_OF_POINTS_IN_LINE, "두 점 사이 거리는 ");
+        MESSAGES_OF_SHOWING_FIGURE_AREA.put(Triangle.SIZE_OF_POINTS_IN_TRIANGLE, "삼각형의 넓이는 ");
+        MESSAGES_OF_SHOWING_FIGURE_AREA.put(Rectangle.SIZE_OF_POINTS_IN_RECTANGLE, "사각형의 넓이는 ");
+    }
 
     @Override
     public void showExceptionMessage(final Exception e) {
@@ -68,5 +84,13 @@ public class ConsoleOutputView implements OutputView {
 
     private String leftPad(final String str, final int size) {
         return StringUtils.leftPad(str, size);
+    }
+
+    @Override
+    public void showAreaOfFigure(final Figure figure) {
+        String message = MESSAGES_OF_SHOWING_FIGURE_AREA.get(figure.size());
+
+        DecimalFormat df = new DecimalFormat("0.######");
+        System.out.println(message + df.format(figure.area()));
     }
 }

@@ -32,6 +32,8 @@ public class CoordinateCalculatorController {
 
             FigureFactory figureFactory = FigureFactory.getInstance();
             Figure figure = figureFactory.create(points);
+
+            outputView.showAreaOfFigure(figure);
             return false;
         } catch (IllegalArgumentException e) {
             outputView.showExceptionMessage(e);
