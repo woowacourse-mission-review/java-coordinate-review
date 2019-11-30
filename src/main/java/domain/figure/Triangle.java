@@ -1,6 +1,6 @@
 package domain.figure;
 
-import domain.Graph;
+import domain.graph.Graph;
 import domain.Points;
 
 public class Triangle implements Figure {
@@ -13,7 +13,8 @@ public class Triangle implements Figure {
 
     @Override
     public Graph drawGraph() {
-        return null;
+        String finalStatement = "직사각형의 넓이는 " + calculateDistanceOrArea() + "입니다.";
+        return new Graph(finalStatement, points.getPoints());
     }
 
     @Override

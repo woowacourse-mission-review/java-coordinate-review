@@ -7,8 +7,8 @@ import java.util.Map;
 import java.util.stream.IntStream;
 
 public class Coordinates {
-    private static final int NUMBER_LOWER_BOUNDARY = 0;
-    private static final int NUMBER_UPPER_BOUNDARY = 24;
+    public static final int NUMBER_LOWER_BOUNDARY = 0;
+    public static final int NUMBER_UPPER_BOUNDARY = 24;
     private static Map<Integer, Coordinate> coordinates = new HashMap<>();
 
     static {

@@ -1,7 +1,10 @@
 package domain.figure;
 
-import domain.Graph;
+import domain.Point;
+import domain.graph.Graph;
 import domain.Points;
+
+import java.util.List;
 
 public class Line implements Figure {
     private Points points;
@@ -12,7 +15,9 @@ public class Line implements Figure {
 
     @Override
     public Graph drawGraph() {
-        return null;
+        String finalStatement = "선분의 길이는 " + calculateDistanceOrArea() + "입니다.";
+        List<Point> points = this.points.getPoints();
+        return new Graph(finalStatement, points);
     }
 
     @Override

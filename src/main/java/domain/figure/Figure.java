@@ -1,6 +1,6 @@
 package domain.figure;
 
-import domain.Graph;
+import domain.graph.Graph;
 
 public interface Figure {
     Graph drawGraph();
