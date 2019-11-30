@@ -23,7 +23,7 @@ public class ConsoleApp {
         final PointGroup pointGroup = createPointGroup();
         final Figure figure = FigureFactory.create(pointGroup);
 
-        outputView.printCoordinates(figure);
+        outputView.printGraph(pointGroup);
         outputView.printArea(figure);
     }
 
