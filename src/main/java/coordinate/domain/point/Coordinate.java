@@ -9,8 +9,8 @@ public class Coordinate {
     static final String RANGE_EXCEPTION_MESSAGE = "%d~%d 사이만 입력 가능합니다.";
     private static final Map<Integer, Coordinate> CACHE = new HashMap<>();
 
+    public static final int MAX_VALUE = 24;
     static final int MIN_VALUE = 0;
-    static final int MAX_VALUE = 24;
 
     static {
         IntStream.range(MIN_VALUE, MAX_VALUE).forEach(value -> CACHE.put(value, new Coordinate(value)));

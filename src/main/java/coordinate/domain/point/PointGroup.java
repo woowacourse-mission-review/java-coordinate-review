@@ -45,4 +45,8 @@ public class PointGroup {
     public boolean matchSize(final int size) {
         return points.size() == size;
     }
+
+    public int size() {
+        return points.size();
+    }
 }
