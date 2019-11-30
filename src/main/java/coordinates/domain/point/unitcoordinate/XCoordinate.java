@@ -10,7 +10,7 @@ public class XCoordinate extends UnitCoordinate {
     private XCoordinate(final int x) {
         super(x);
 
-        if (isOutOfBound(super.getValue())) {
+        if (isOutOfBound(super.value())) {
             throw new OutOfXCoordinateBoundException();
         }
     }

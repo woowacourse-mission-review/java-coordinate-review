@@ -10,7 +10,7 @@ public class UnitCoordinate {
         this.value = value;
     }
 
-    public int getValue() {
+    public int value() {
         return value;
     }
 

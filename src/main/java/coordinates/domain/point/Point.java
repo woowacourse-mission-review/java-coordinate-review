@@ -21,11 +21,11 @@ public class Point {
     }
 
     public int getX() {
-        return xCoordinate.getValue();
+        return xCoordinate.value();
     }
 
     public int getY() {
-        return yCoordinate.getValue();
+        return yCoordinate.value();
     }
 
     public XCoordinate getXCoordinate() {

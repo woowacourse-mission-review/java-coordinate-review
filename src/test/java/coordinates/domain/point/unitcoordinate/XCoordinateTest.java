@@ -19,7 +19,7 @@ class XCoordinateTest {
     @Test
     void create() {
         assertThat(xCoordinate).isNotNull();
-        assertThat(xCoordinate.getValue()).isEqualTo(1);
+        assertThat(xCoordinate.value()).isEqualTo(1);
     }
 
     @Test

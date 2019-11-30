@@ -17,7 +17,7 @@ class UnitCoordinateTest {
     @Test
     void create() {
         assertThat(unitCoordinate).isNotNull();
-        assertThat(unitCoordinate.getValue()).isEqualTo(2);
+        assertThat(unitCoordinate.value()).isEqualTo(2);
     }
 
     @Test

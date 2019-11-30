@@ -10,7 +10,7 @@ public class YCoordinate extends UnitCoordinate {
     private YCoordinate(final int y) {
         super(y);
 
-        if (isOutOfBound(super.getValue())) {
+        if (isOutOfBound(super.value())) {
             throw new OutOfYCoordinateBoundException();
         }
     }
