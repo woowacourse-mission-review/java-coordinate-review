@@ -28,4 +28,8 @@ public class Vector {
     public int getY() {
         return y;
     }
+
+    public boolean isPerpendicular(Vector another) {
+        return this.innerProduct(another) == 0;
+    }
 }
