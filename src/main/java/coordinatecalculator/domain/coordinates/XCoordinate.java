@@ -5,18 +5,18 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 import java.util.Objects;
 
-public class XCoordinate {
+public class XCoordinate implements Coordinate {
 
     public static final int MAX_X_COORDINATE = 24;
     public static final int MIN_X_COORDINATE = 1;
 
     private static final Map<Integer, XCoordinate> xCoordinatePool = Maps.newHashMap();
 
-    private final Coordinate coordinate;
+    private final CoordinateValue coordinate;
 
     private XCoordinate(final int coordinate) {
         validate(coordinate);
-        this.coordinate = Coordinate.of(coordinate);
+        this.coordinate = CoordinateValue.of(coordinate);
     }
 
     private void validate(final int coordinate) {
