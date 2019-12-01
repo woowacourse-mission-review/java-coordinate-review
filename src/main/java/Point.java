@@ -1,6 +1,6 @@
 import java.util.Objects;
 
-public class Point {
+public class Point implements Comparable<Point> {
     private final Coordinate x;
     private final Coordinate y;
 
@@ -29,5 +29,14 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    @Override
+    public int compareTo(Point another) {
+        if (x.equals(another.x)) {
+            return y.minus(another.y);
+        }
+
+        return x.minus(another.x);
     }
 }
