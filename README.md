@@ -19,7 +19,7 @@
 - [x] FigureType
     - FigureType enum
     
-- [ ] Figure
+- [x] Figure
     - Figure 인터페이스는 getType(), getPoints(), calculate() 메서드를 갖는다.
     
 - [ ] Line
@@ -53,3 +53,4 @@ Point 객체에 getX() 메서드가 있을 때, XCoordinate 객체를 리턴하�
 전자의 경우 원시값보다 객체를 리턴함으로써 더 안전하게 정보를 전달할 수 있을 것이다.
 - p1.getX() - p2.getX() => p1.subX(p2) 투머치?
 - 인자로 들어온 동일한 타입의 객체의 private 필드에 접근하는 것은 안티패턴?
+- Figure 가 계산하는 값이 길이인지(선인 경우), 면적인지(삼각형, 사각형인 경우) 어떻게 확인해야 좋을까?
