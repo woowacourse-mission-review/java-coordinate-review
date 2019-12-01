@@ -25,10 +25,10 @@ public class Point {
     }
 
     public int subX(Point another) {
-        return x.getValue() - another.x.getValue();
+        return x.sub(another.x);
     }
 
     public int subY(Point another) {
-        return y.getValue() - another.y.getValue();
+        return y.sub(another.y);
     }
 }
