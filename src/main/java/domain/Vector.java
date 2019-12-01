@@ -14,7 +14,7 @@ public class Vector {
     }
 
     public int innerProduct(Vector another) {
-        return x * another.getX() + y * another.getY();
+        return x * another.x + y * another.y;
     }
 
     public int getX() {
