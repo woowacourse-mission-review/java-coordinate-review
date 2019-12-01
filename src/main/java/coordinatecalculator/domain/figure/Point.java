@@ -19,6 +19,14 @@ public class Point {
         return new Point(XCoordinate.of(xCoordinate), YCoordinate.of(yCoordinate));
     }
 
+    public int xValue() {
+        return xCoordinate.value();
+    }
+
+    public int yValue() {
+        return yCoordinate.value();
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
@@ -31,10 +39,5 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(xCoordinate, yCoordinate);
-    }
-
-    public double calculateDistance(final Point endPoint) {
-        return Math.sqrt(Math.pow(endPoint.xCoordinate.value() - xCoordinate.value(), 2)
-                + Math.pow(endPoint.yCoordinate.value() - yCoordinate.value(), 2));
     }
 }
