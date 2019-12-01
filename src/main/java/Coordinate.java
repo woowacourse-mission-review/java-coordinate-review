@@ -8,7 +8,12 @@ public class Coordinate {
         this.value = validateAndReturn(value);
     }
 
-    private Integer validateAndReturn(String inputValue) {
+    public Coordinate(Integer value) {
+        validate(value);
+        this.value = value;
+    }
+
+    public static Integer validateAndReturn(String inputValue) {
         try {
             Integer value = Integer.parseInt(inputValue);
             validate(value);
@@ -18,9 +23,13 @@ public class Coordinate {
         }
     }
 
-    private void validate(Integer value) {
+    public static void validate(Integer value) {
         if (value > MAX_VALUE || value < MIN_VALUE) {
             throw new InvalidCoordinateException();
         }
+    }
+
+    public Integer value() {
+        return value;
     }
 }
