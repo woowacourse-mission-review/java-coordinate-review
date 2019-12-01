@@ -3,6 +3,7 @@ package coordinatecalculator.domain.figure.line;
 import com.google.common.collect.Sets;
 import coordinatecalculator.domain.figure.Figure;
 import coordinatecalculator.domain.figure.Point;
+import coordinatecalculator.domain.result.Result;
 
 import java.util.List;
 import java.util.Objects;
@@ -27,6 +28,11 @@ public class Line implements Figure {
 
     public boolean contains(final Point point) {
         return points.contains(point);
+    }
+
+    @Override
+    public Result createResult() {
+        return Result.of(points);
     }
 
     @Override
