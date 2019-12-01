@@ -1,14 +1,19 @@
 package coordinatecalculator.domain.figure.line;
 
+import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
+import coordinatecalculator.domain.figure.AttributeCreator;
 import coordinatecalculator.domain.figure.Figure;
 import coordinatecalculator.domain.figure.Point;
 import coordinatecalculator.domain.result.Result;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class Line implements Figure {
+
+    private final List<AttributeCreator> attributeCreators = Lists.newArrayList(new LineLengthAttributeCreator());
 
     private List<Point> points;
 
@@ -32,7 +37,11 @@ public class Line implements Figure {
 
     @Override
     public Result createResult() {
-        return Result.of(points);
+        List<String> attributesMessages = attributeCreators.stream()
+                .map(attributeCreator -> attributeCreator.create(points))
+                .collect(Collectors.toList());
+
+        return Result.of(points, attributesMessages);
     }
 
     @Override

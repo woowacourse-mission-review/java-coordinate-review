@@ -30,6 +30,7 @@ public class ConsoleOutputView implements OutputView {
         drawResult(result, sb);
         drawXAxis(sb);
         drawXAxisPoints(sb);
+        printAttributesMessages(result, sb);
         System.out.println(sb.toString());
     }
 
@@ -68,9 +69,17 @@ public class ConsoleOutputView implements OutputView {
         for (int xIndex = MIN_X_COORDINATE; xIndex <= MAX_X_COORDINATE; xIndex++) {
             sb.append(String.format(STRING_FORMAT, isEvenNumber(xIndex) ? String.valueOf(xIndex) : EMPTY_TILE));
         }
+        sb.append(NEW_LINE);
     }
 
     private boolean isEvenNumber(int target) {
         return target % 2 == 0;
+    }
+
+    private void printAttributesMessages(final Result result, final StringBuilder sb) {
+        sb.append(NEW_LINE);
+        for (String attributeMessage : result.getAttributeMessages()) {
+            sb.append(attributeMessage);
+        }
     }
 }

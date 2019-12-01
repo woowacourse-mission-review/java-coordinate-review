@@ -32,4 +32,9 @@ public class Point {
     public int hashCode() {
         return Objects.hash(xCoordinate, yCoordinate);
     }
+
+    public double calculateDistance(final Point endPoint) {
+        return Math.sqrt(Math.pow(endPoint.xCoordinate.value() - xCoordinate.value(), 2)
+                + Math.pow(endPoint.yCoordinate.value() - yCoordinate.value(), 2));
+    }
 }
