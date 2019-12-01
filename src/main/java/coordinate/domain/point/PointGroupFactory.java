@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class PointGroupFactory {
-    static final String NOT_VALID_INPUT_EXCEPTION_MESSAGE = "유효한 입력이 아닙니다. ex) (10,10)-(10,10)-(20,8)";
+    static final String NOT_VALID_INPUT_EXCEPTION_MESSAGE = "유효한 입력이 아닙니다. ex) (10,10)-(13,10)-(20,8)";
     private static final String REGEX = "(\\([0-9]{1,2},[0-9]{1,2}\\)-)+\\([0-9]{1,2},[0-9]{1,2}\\)";
     private static final Pattern VALID_INPUT_PATTERN = Pattern.compile(REGEX);
     private static final String DELIMITER_POINT = "-";
