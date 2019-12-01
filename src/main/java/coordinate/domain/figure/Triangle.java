@@ -19,7 +19,13 @@ public class Triangle extends AbstractFigure {
         return SIZE_OF_POINTS;
     }
 
-    // Heron's formula
+    /**
+     * Heron's formula
+     * s = (a+ b + c) / 2
+     * 넓이 = √s(s-a)(s-b)(s-c)
+     *
+     * @return 넓이
+     */
     @Override
     public double area() {
         final Point point1 = pointGroup.get(0);
