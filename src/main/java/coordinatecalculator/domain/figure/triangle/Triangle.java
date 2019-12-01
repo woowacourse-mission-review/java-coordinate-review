@@ -5,34 +5,36 @@ import com.google.common.collect.Sets;
 import coordinatecalculator.domain.figure.AttributeCreator;
 import coordinatecalculator.domain.figure.Figure;
 import coordinatecalculator.domain.figure.Point;
-import coordinatecalculator.domain.result.Result;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.stream.Collectors;
 
-public class Triangle implements Figure {
+public class Triangle extends Figure {
 
-    private final List<AttributeCreator> attributeCreators = Lists.newArrayList(new TriangleAreaAttributeCreator());
+    private static final List<AttributeCreator> TRIANGLE_ATTRIBUTE_CREATOR = Lists.newArrayList(new TriangleAreaAttributeCreator());
 
-    private final List<Point> points;
-
-    public Triangle(final List<Point> points) {
-        validate(points);
-        this.points = points;
+    private Triangle(final List<Point> points) {
+        super(points, TRIANGLE_ATTRIBUTE_CREATOR);
     }
 
-    private void validate(final List<Point> points) {
-        if (points.size() != 3) {
+    public static Triangle of(final List<Point> points) {
+        if (isInvalidTriangle(points)) {
             throw new IllegalArgumentException();
+        }
+        return new Triangle(points);
+    }
+
+    static boolean isInvalidTriangle(final List<Point> points) {
+        if (points.size() != 3) {
+            return true;
         }
         if (points.size() != Sets.newHashSet(points).size()) {
-            throw new IllegalArgumentException();
+            return true;
         }
-        validateSlope(points);
+        return isInvalidSlope(points);
     }
 
-    private void validateSlope(List<Point> points) {
+    private static boolean isInvalidSlope(List<Point> points) {
         Point point1 = points.get(0);
         Point point2 = points.get(1);
         Point point3 = points.get(2);
@@ -40,23 +42,12 @@ public class Triangle implements Figure {
         int leftHandSide = (point2.yValue() - point1.yValue()) * (point3.xValue() - point1.xValue());
         int rightHandSide = (point3.yValue() - point1.yValue()) * (point2.xValue() - point1.xValue());
 
-        if (leftHandSide == rightHandSide) {
-            throw new IllegalArgumentException();
-        }
+        return leftHandSide == rightHandSide;
     }
 
     @Override
     public boolean contains(final Point point) {
         return points.contains(point);
-    }
-
-    @Override
-    public Result createResult() {
-        List<String> attributesMessages = attributeCreators.stream()
-                .map(attributeCreator -> attributeCreator.create(points))
-                .collect(Collectors.toList());
-
-        return Result.of(points, attributesMessages);
     }
 
     @Override

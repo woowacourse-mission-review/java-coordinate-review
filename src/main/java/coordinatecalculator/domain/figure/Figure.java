@@ -2,9 +2,26 @@ package coordinatecalculator.domain.figure;
 
 import coordinatecalculator.domain.result.Result;
 
-public interface Figure {
+import java.util.List;
+import java.util.stream.Collectors;
 
-    boolean contains(Point point);
+public abstract class Figure {
 
-    Result createResult();
+    private final List<AttributeCreator> creators;
+    protected final List<Point> points;
+
+    public Figure(final List<Point> points, final List<AttributeCreator> creators) {
+        this.points = points;
+        this.creators = creators;
+    }
+
+    public abstract boolean contains(Point point);
+
+    public Result createResult() {
+        List<String> attributesMessages = creators.stream()
+                .map(attributeCreator -> attributeCreator.create(points))
+                .collect(Collectors.toList());
+
+        return Result.of(points, attributesMessages);
+    }
 }

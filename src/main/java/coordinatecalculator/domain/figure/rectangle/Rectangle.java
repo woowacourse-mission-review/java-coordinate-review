@@ -5,44 +5,45 @@ import com.google.common.collect.Sets;
 import coordinatecalculator.domain.figure.AttributeCreator;
 import coordinatecalculator.domain.figure.Figure;
 import coordinatecalculator.domain.figure.Point;
-import coordinatecalculator.domain.result.Result;
 
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-public class Rectangle implements Figure {
+public class Rectangle extends Figure {
 
-    private final List<AttributeCreator> attributeCreators = Lists.newArrayList(new RectangleAreaAttributeCreator());
+    private static final List<AttributeCreator> RECTANGLE_ATTRIBUTE_CREATOR = Lists.newArrayList(new RectangleAreaAttributeCreator());
 
-    private List<Point> points;
-
-    public Rectangle(final List<Point> points) {
-        validate(points);
-        this.points = points;
+    private Rectangle(final List<Point> points) {
+        super(points, RECTANGLE_ATTRIBUTE_CREATOR);
     }
 
-    private void validate(final List<Point> points) {
-        if (points.size() != 4) {
+    public static Rectangle of(final List<Point> points) {
+        if (isInvalidRectangle(points)) {
             throw new IllegalArgumentException();
+        }
+        return new Rectangle(points);
+    }
+
+    static boolean isInvalidRectangle(final List<Point> points) {
+        if (points.size() != 4) {
+            return true;
         }
         if (points.size() != Sets.newHashSet(points).size()) {
-            throw new IllegalArgumentException();
+            return true;
         }
-        validatePair(points);
+        return isInvalidPairs(points);
     }
 
-    private void validatePair(final List<Point> points) {
+    private static boolean isInvalidPairs(final List<Point> points) {
         List<Integer> xPoints = findPair(points, Point::xValue);
         List<Integer> yPoints = findPair(points, Point::yValue);
 
-        if (xPoints.size() != 2 || yPoints.size() != 2) {
-            throw new IllegalArgumentException();
-        }
+        return xPoints.size() != 2 || yPoints.size() != 2;
     }
 
-    private List<Integer> findPair(final List<Point> points, final Function<Point, Integer> pairFunction) {
+    private static List<Integer> findPair(final List<Point> points, final Function<Point, Integer> pairFunction) {
         return points.stream()
                 .map(pairFunction)
                 .distinct()
@@ -52,15 +53,6 @@ public class Rectangle implements Figure {
     @Override
     public boolean contains(final Point point) {
         return points.contains(point);
-    }
-
-    @Override
-    public Result createResult() {
-        List<String> attributesMessages = attributeCreators.stream()
-                .map(attributeCreator -> attributeCreator.create(points))
-                .collect(Collectors.toList());
-
-        return Result.of(points, attributesMessages);
     }
 
     @Override

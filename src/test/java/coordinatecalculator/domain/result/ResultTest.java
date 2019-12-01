@@ -22,7 +22,7 @@ class ResultTest {
         Point point1 = Point.of(MIN_X_COORDINATE, MIN_Y_COORDINATE);
         Point point2 = Point.of(MAX_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2);
-        Line line = new Line(points);
+        Line line = Line.of(points);
 
         Result result = line.createResult();
         assertTrue(result.contains(point1));

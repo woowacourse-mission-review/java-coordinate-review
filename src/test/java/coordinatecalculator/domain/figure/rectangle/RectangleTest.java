@@ -26,7 +26,7 @@ class RectangleTest {
         Point point4 = Point.of(MAX_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point3, point4);
 
-        assertDoesNotThrow(() -> new Rectangle(points));
+        assertDoesNotThrow(() -> Rectangle.of(points));
     }
 
     @Test
@@ -37,7 +37,7 @@ class RectangleTest {
         Point point3 = Point.of(MAX_X_COORDINATE, MIN_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point3);
 
-        assertThrows(IllegalArgumentException.class, () -> new Rectangle(points));
+        assertThrows(IllegalArgumentException.class, () -> Rectangle.of(points));
     }
 
     @Test
@@ -50,7 +50,7 @@ class RectangleTest {
         Point point5 = Point.of(MAX_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point3, point4, point5);
 
-        assertThrows(IllegalArgumentException.class, () -> new Rectangle(points));
+        assertThrows(IllegalArgumentException.class, () -> Rectangle.of(points));
     }
 
     @Test
@@ -62,7 +62,7 @@ class RectangleTest {
         Point point4 = Point.of(MAX_X_COORDINATE, MIN_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point3, point4);
 
-        assertThrows(IllegalArgumentException.class, () -> new Rectangle(points));
+        assertThrows(IllegalArgumentException.class, () -> Rectangle.of(points));
     }
 
     @Test
@@ -74,7 +74,7 @@ class RectangleTest {
         Point point4 = Point.of(3, 2);
         List<Point> points = Lists.newArrayList(point1, point2, point3, point4);
 
-        assertThrows(IllegalArgumentException.class, () -> new Rectangle(points));
+        assertThrows(IllegalArgumentException.class, () -> Rectangle.of(points));
     }
 
     @Test
@@ -86,7 +86,7 @@ class RectangleTest {
         Point point4 = Point.of(MAX_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point3, point4);
 
-        Rectangle rectangle = assertDoesNotThrow(() -> new Rectangle(points));
+        Rectangle rectangle = assertDoesNotThrow(() -> Rectangle.of(points));
         assertTrue(rectangle.contains(point1));
         assertTrue(rectangle.contains(point2));
         assertTrue(rectangle.contains(point3));
@@ -102,8 +102,8 @@ class RectangleTest {
         Point point4 = Point.of(MAX_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point3, point4);
 
-        Rectangle rectangle1 = assertDoesNotThrow(() -> new Rectangle(points));
-        Rectangle rectangle2 = assertDoesNotThrow(() -> new Rectangle(points));
+        Rectangle rectangle1 = assertDoesNotThrow(() -> Rectangle.of(points));
+        Rectangle rectangle2 = assertDoesNotThrow(() -> Rectangle.of(points));
         assertEquals(rectangle1, rectangle2);
     }
 
@@ -116,8 +116,8 @@ class RectangleTest {
         Point point4 = Point.of(MAX_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point3, point4);
 
-        Rectangle rectangle1 = assertDoesNotThrow(() -> new Rectangle(points));
-        Rectangle rectangle2 = assertDoesNotThrow(() -> new Rectangle(points));
+        Rectangle rectangle2 = assertDoesNotThrow(() -> Rectangle.of(points));
+        Rectangle rectangle1 = assertDoesNotThrow(() -> Rectangle.of(points));
         assertThat(Sets.newHashSet(Lists.newArrayList(rectangle1, rectangle2)).size()).isEqualTo(1);
     }
 }

@@ -79,6 +79,6 @@ class TriangleCreatorTest {
         Point point3 = Point.of(MIN_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point3);
 
-        assertEquals(triangleCreator.create(points), new Triangle(points));
+        assertEquals(triangleCreator.create(points), Triangle.of(points));
     }
 }

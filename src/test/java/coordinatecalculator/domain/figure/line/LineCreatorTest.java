@@ -56,6 +56,6 @@ class LineCreatorTest {
         Point point2 = Point.of(MIN_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2);
 
-        assertEquals(lineCreator.create(points), new Line(points));
+        assertEquals(lineCreator.create(points), Line.of(points));
     }
 }

@@ -25,7 +25,7 @@ class TriangleTest {
         Point point3 = Point.of(MIN_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point3);
 
-        assertDoesNotThrow(() -> new Triangle(points));
+        assertDoesNotThrow(() -> Triangle.of(points));
     }
 
     @Test
@@ -35,7 +35,7 @@ class TriangleTest {
         Point point2 = Point.of(MAX_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> twoPoints = Lists.newArrayList(point1, point2);
 
-        assertThrows(IllegalArgumentException.class, () -> new Triangle(twoPoints));
+        assertThrows(IllegalArgumentException.class, () -> Triangle.of(twoPoints));
     }
 
     @Test
@@ -47,7 +47,7 @@ class TriangleTest {
         Point point4 = Point.of(MAX_X_COORDINATE, MIN_Y_COORDINATE);
         List<Point> fourPoints = Lists.newArrayList(point1, point2, point3, point4);
 
-        assertThrows(IllegalArgumentException.class, () -> new Triangle(fourPoints));
+        assertThrows(IllegalArgumentException.class, () -> Triangle.of(fourPoints));
     }
 
     @Test
@@ -57,7 +57,7 @@ class TriangleTest {
         Point point2 = Point.of(MAX_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point2);
 
-        assertThrows(IllegalArgumentException.class, () -> new Triangle(points));
+        assertThrows(IllegalArgumentException.class, () -> Triangle.of(points));
     }
 
     @Test
@@ -68,7 +68,7 @@ class TriangleTest {
         Point point3 = Point.of(MIN_X_COORDINATE + 1, MIN_Y_COORDINATE + 1);
         List<Point> points = Lists.newArrayList(point1, point2, point3);
 
-        assertThrows(IllegalArgumentException.class, () -> new Triangle(points));
+        assertThrows(IllegalArgumentException.class, () -> Triangle.of(points));
     }
 
     @Test
@@ -79,7 +79,7 @@ class TriangleTest {
         Point point3 = Point.of(MIN_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point3);
 
-        Triangle triangle = assertDoesNotThrow(() -> new Triangle(points));
+        Triangle triangle = assertDoesNotThrow(() -> Triangle.of(points));
         assertTrue(triangle.contains(point1));
         assertTrue(triangle.contains(point2));
         assertTrue(triangle.contains(point3));
@@ -93,8 +93,8 @@ class TriangleTest {
         Point point3 = Point.of(MIN_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point3);
 
-        Triangle triangle1 = assertDoesNotThrow(() -> new Triangle(points));
-        Triangle triangle2 = assertDoesNotThrow(() -> new Triangle(points));
+        Triangle triangle1 = assertDoesNotThrow(() -> Triangle.of(points));
+        Triangle triangle2 = assertDoesNotThrow(() -> Triangle.of(points));
         assertEquals(triangle1, triangle2);
     }
 
@@ -106,8 +106,8 @@ class TriangleTest {
         Point point3 = Point.of(MIN_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point3);
 
-        Triangle triangle1 = assertDoesNotThrow(() -> new Triangle(points));
-        Triangle triangle2 = assertDoesNotThrow(() -> new Triangle(points));
+        Triangle triangle1 = assertDoesNotThrow(() -> Triangle.of(points));
+        Triangle triangle2 = assertDoesNotThrow(() -> Triangle.of(points));
         assertThat(Sets.newHashSet(Lists.newArrayList(triangle1, triangle2)).size()).isEqualTo(1);
     }
 }

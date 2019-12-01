@@ -25,7 +25,7 @@ class LineTest {
         Point point2 = Point.of(MAX_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2);
 
-        assertDoesNotThrow(() -> new Line(points));
+        assertDoesNotThrow(() -> Line.of(points));
     }
 
     @Test
@@ -35,7 +35,7 @@ class LineTest {
         Point point2 = Point.of(MIN_X_COORDINATE, MIN_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2);
 
-        assertThrows(IllegalArgumentException.class, () -> new Line(points));
+        assertThrows(IllegalArgumentException.class, () -> Line.of(points));
     }
 
     @Test
@@ -47,8 +47,8 @@ class LineTest {
         List<Point> onePoint = Lists.newArrayList(point1);
         List<Point> threePoints = Lists.newArrayList(point1, point2, point3);
 
-        assertThrows(IllegalArgumentException.class, () -> new Line(onePoint));
-        assertThrows(IllegalArgumentException.class, () -> new Line(threePoints));
+        assertThrows(IllegalArgumentException.class, () -> Line.of(onePoint));
+        assertThrows(IllegalArgumentException.class, () -> Line.of(threePoints));
     }
 
     @Test
@@ -58,7 +58,7 @@ class LineTest {
         Point point2 = Point.of(MIN_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2);
 
-        Line line = new Line(points);
+        Line line = Line.of(points);
         assertTrue(line.contains(point1));
     }
 
@@ -70,7 +70,7 @@ class LineTest {
         Point point3 = Point.of(MAX_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2);
 
-        Line line = new Line(points);
+        Line line = Line.of(points);
         assertFalse(line.contains(point3));
     }
 
@@ -81,8 +81,8 @@ class LineTest {
         Point point2 = Point.of(MIN_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2);
 
-        Line line1 = new Line(points);
-        Line line2 = new Line(points);
+        Line line1 = Line.of(points);
+        Line line2 = Line.of(points);
 
         assertEquals(line1, line2);
     }
@@ -94,8 +94,8 @@ class LineTest {
         Point point2 = Point.of(MIN_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2);
 
-        Line line1 = new Line(points);
-        Line line2 = new Line(points);
+        Line line1 = Line.of(points);
+        Line line2 = Line.of(points);
 
         Set<Line> lines = Sets.newHashSet(Lists.newArrayList(line1, line2));
         assertThat(lines.size()).isEqualTo(1);
