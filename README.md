@@ -16,6 +16,12 @@
     - 두 점을 받아 두 번째 점에서 첫 번째 점을 빼서 벡터를 만든다.
     - 다른 벡터를 인자로 받아 내적을 계산한다.
     
+- [x] FigureType
+    - FigureType enum
+    
+- [ ] Figure
+    - Figure 인터페이스는 getType(), getPoints(), calculate() 메서드를 갖는다.
+    
 - [ ] Line
     - [ ] 점 2개를 생성자의 인자로 받는다.
     - [ ] 두 점 사이의 거리를 계산한다.
