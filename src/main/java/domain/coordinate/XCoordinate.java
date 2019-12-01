@@ -31,6 +31,10 @@ public class XCoordinate {
         }
     }
 
+    public int sub(XCoordinate another) {
+        return value - another.value;
+    }
+
     public int getValue() {
         return value;
     }

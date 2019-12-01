@@ -30,4 +30,9 @@ class XCoordinateTest {
     void XCoordinateEqualityTest() {
         assertThat(XCoordinate.from(0)).isEqualTo(XCoordinate.from(0));
     }
+
+    @Test
+    void SubTest() {
+        assertThat(XCoordinate.from(5).sub(XCoordinate.from(3))).isEqualTo(2);
+    }
 }
