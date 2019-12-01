@@ -7,7 +7,7 @@ public class Line implements Figure {
     private static final long NUM_OF_POINTS = 2;
     private final List<Point> points;
 
-    public Line(List<Point> points) {
+    private Line(List<Point> points) {
         this.points = new ArrayList<>(points);
         validateLine(this.points);
     }
