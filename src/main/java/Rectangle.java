@@ -8,10 +8,10 @@ public class Rectangle extends Shape{
         super(points);
     }
 
-    public Integer area() {
+    public Double area() {
         Collections.sort(points);
         Line height = new Line(Arrays.asList(points.get(0), points.get(1)));
         Line width = new Line(Arrays.asList(points.get(0), points.get(2)));
-        return (int) (height.length() * width.length());
+        return height.area() * width.area();
     }
 }

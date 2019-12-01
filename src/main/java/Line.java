@@ -6,7 +6,7 @@ public class Line extends Shape {
         super(points);
     }
 
-    public Double length() {
+    public Double area() {
         Point p1 = points.get(0);
         Point p2 = points.get(1);
 

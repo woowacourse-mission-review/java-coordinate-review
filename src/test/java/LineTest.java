@@ -34,6 +34,6 @@ public class LineTest {
     void calculate_distance() {
         Line line = new Line(Arrays.asList(p1, p2));
 
-        assertThat(line.length()).isEqualTo(6.4031241, offset(0.00099));
+        assertThat(line.area()).isEqualTo(6.4031241, offset(0.00099));
     }
 }
