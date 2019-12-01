@@ -23,4 +23,12 @@ public class Point {
     public int getY() {
         return y.getValue();
     }
+
+    public int subX(Point another) {
+        return x.getValue() - another.x.getValue();
+    }
+
+    public int subY(Point another) {
+        return y.getValue() - another.y.getValue();
+    }
 }

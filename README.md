@@ -45,3 +45,4 @@
 Point 객체에 getX() 메서드가 있을 때, XCoordinate 객체를 리턴하는 게 맞을까 아니면 getter 를 호출해서 integer value 를 꺼내서
 리턴하는 게 맞을까? 후자의 경우 Point 안에 XCoordinate 객체가 존재한다는 것을 밝히지 않을 수 있다는 장점이 있을 것이고,
 전자의 경우 원시값보다 객체를 리턴함으로써 더 안전하게 정보를 전달할 수 있을 것이다.
+- p1.getX() - p2.getX() => p1.subX(p2) 투머치?
