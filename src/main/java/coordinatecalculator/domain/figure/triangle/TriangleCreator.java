@@ -27,7 +27,7 @@ public class TriangleCreator implements FigureCreator<Triangle> {
         int leftHandSide = (point2.yValue() - point1.yValue()) * (point3.xValue() - point1.xValue());
         int rightHandSide = (point3.yValue() - point1.yValue()) * (point2.xValue() - point1.xValue());
 
-        return leftHandSide == rightHandSide;
+        return leftHandSide != rightHandSide;
     }
 
     @Override
