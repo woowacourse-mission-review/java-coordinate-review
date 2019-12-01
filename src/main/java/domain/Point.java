@@ -5,7 +5,7 @@ import domain.coordinate.YCoordinate;
 
 import java.util.Objects;
 
-public class Point {
+public class Point implements Comparable<Point> {
     private final XCoordinate x;
     private final YCoordinate y;
 
@@ -51,5 +51,15 @@ public class Point {
     @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    @Override
+    public int compareTo(Point another) {
+        int xCompare = Integer.compare(getX(), another.getX());
+        if (xCompare != 0) {
+            return xCompare;
+        }
+        return Integer.compare(getY(), another.getY());
+
     }
 }
