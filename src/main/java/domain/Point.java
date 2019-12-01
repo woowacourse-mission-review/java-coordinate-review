@@ -35,6 +35,7 @@ public class Point {
     }
 
     public double distance(Point another) {
+        // Pythagorean theorem
         return Math.sqrt(Math.pow(x.sub(another.x), 2.0) + Math.pow(y.sub(another.y), 2.0));
     }
 
