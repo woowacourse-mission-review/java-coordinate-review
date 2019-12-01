@@ -6,4 +6,12 @@ public class Point {
         this.x = x;
         this.y = y;
     }
+
+    public Integer minusX(Point another) {
+        return x.minus(another.x);
+    }
+
+    public Integer minusY(Point another) {
+        return y.minus(another.y);
+    }
 }

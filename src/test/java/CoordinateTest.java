@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -29,5 +30,14 @@ public class CoordinateTest {
     void create_not_integer() {
         assertThrows(InvalidCoordinateException.class, () -> new Coordinate("1.5"));
         assertThrows(InvalidCoordinateException.class, () -> new Coordinate("a"));
+    }
+
+    @Test
+    @DisplayName("두 좌표의 차이를 구한다.")
+    void minus() {
+        Coordinate x1 = new Coordinate("2");
+        Coordinate x2 = new Coordinate("1");
+
+        assertThat(x1.minus(x2)).isEqualTo(1);
     }
 }

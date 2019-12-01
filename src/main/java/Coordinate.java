@@ -29,6 +29,10 @@ public class Coordinate {
         }
     }
 
+    public Integer minus(Coordinate another) {
+        return value - another.value;
+    }
+
     public Integer value() {
         return value;
     }
