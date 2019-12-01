@@ -1,6 +1,7 @@
-package coordinatecalculator.domain.figure;
+package coordinatecalculator.domain.figure.line;
 
 import com.google.common.collect.Lists;
+import coordinatecalculator.domain.figure.Point;
 import org.assertj.core.util.Sets;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

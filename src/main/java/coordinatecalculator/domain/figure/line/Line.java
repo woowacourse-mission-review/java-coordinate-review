@@ -1,6 +1,8 @@
-package coordinatecalculator.domain.figure;
+package coordinatecalculator.domain.figure.line;
 
 import com.google.common.collect.Sets;
+import coordinatecalculator.domain.figure.Figure;
+import coordinatecalculator.domain.figure.Point;
 
 import java.util.List;
 import java.util.Objects;
