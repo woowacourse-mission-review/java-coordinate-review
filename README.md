@@ -22,9 +22,9 @@
 - [x] Figure
     - Figure 인터페이스는 getType(), getPoints(), calculate() 메서드를 갖는다.
     
-- [ ] Line
-    - [ ] 점 2개를 생성자의 인자로 받는다.
-    - [ ] 두 점 사이의 거리를 계산한다.
+- [x] Line
+    - 두 점 사이의 거리를 계산한다.
+    - [제약조건] 두 개의 서로다른 점을 인자로 받아야한다.
 
 - [ ] Triangle
     - [ ] 점 3개를 생성자의 인자로 받는다.
@@ -54,3 +54,5 @@ Point 객체에 getX() 메서드가 있을 때, XCoordinate 객체를 리턴하�
 - p1.getX() - p2.getX() => p1.subX(p2) 투머치?
 - 인자로 들어온 동일한 타입의 객체의 private 필드에 접근하는 것은 안티패턴?
 - Figure 가 계산하는 값이 길이인지(선인 경우), 면적인지(삼각형, 사각형인 경우) 어떻게 확인해야 좋을까?
+- Point 는 인자로 XCoordinate, YCoordinate 을 받고, Line 은 인자로 List<Point> 를 받는다. 그러다보니 Line을 생성하는 로직이 너무 귀찮아졌다.
+이런 문제는 어떻게 해결하야할까?
