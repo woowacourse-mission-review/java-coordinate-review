@@ -31,6 +31,10 @@ public class YCoordinate {
         }
     }
 
+    public int sub(YCoordinate another) {
+        return value - another.value;
+    }
+
     public int getValue() {
         return value;
     }

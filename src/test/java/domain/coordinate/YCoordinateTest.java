@@ -30,4 +30,9 @@ class YCoordinateTest {
     void YCoordinateEqualityTest() {
         assertThat(YCoordinate.from(0)).isEqualTo(YCoordinate.from(0));
     }
+
+    @Test
+    void SubTest() {
+        assertThat(YCoordinate.from(5).sub(YCoordinate.from(3))).isEqualTo(2);
+    }
 }
