@@ -10,24 +10,24 @@ class YCoordinateTest {
     @Test
     @DisplayName("Y 좌표는 0 미만의 값을 가질 수 없다.")
     void YCoordinateValueUnderflowTest() {
-        assertThrows(IllegalArgumentException.class, () -> YCoordinate.of(-1));
+        assertThrows(IllegalArgumentException.class, () -> YCoordinate.from(-1));
     }
 
     @Test
     @DisplayName("Y 좌표는 24를 초과하는 값을 가질 수 없다.")
     void YCoordinateValueOverflowTest() {
-        assertThrows(IllegalArgumentException.class, () -> YCoordinate.of(25));
+        assertThrows(IllegalArgumentException.class, () -> YCoordinate.from(25));
     }
 
     @Test
     @DisplayName("같은 Y 좌표에 대해서 같은 객체임을 보장한다. (Identity Check)")
     void YCoordinateIdentityTest() {
-        assertThat(YCoordinate.of(0) == YCoordinate.of(0)).isTrue();
+        assertThat(YCoordinate.from(0) == YCoordinate.from(0)).isTrue();
     }
 
     @Test
     @DisplayName("같은 값을 갖는 Y 좌표는 동일하다. (Equality Check)")
     void YCoordinateEqualityTest() {
-        assertThat(YCoordinate.of(0)).isEqualTo(YCoordinate.of(0));
+        assertThat(YCoordinate.from(0)).isEqualTo(YCoordinate.from(0));
     }
 }

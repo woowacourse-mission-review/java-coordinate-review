@@ -19,7 +19,7 @@ public class YCoordinate {
         this.value = value;
     }
 
-    public static YCoordinate of(int value) {
+    public static YCoordinate from(int value) {
         validateRange(value);
         return CACHE.get(value);
     }
