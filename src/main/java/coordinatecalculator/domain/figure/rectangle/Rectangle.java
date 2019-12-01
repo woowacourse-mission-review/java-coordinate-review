@@ -5,7 +5,6 @@ import com.google.common.collect.Sets;
 import coordinatecalculator.domain.figure.AttributeCreator;
 import coordinatecalculator.domain.figure.Figure;
 import coordinatecalculator.domain.figure.Point;
-import coordinatecalculator.domain.figure.triangle.TriangleAreaAttributeCreator;
 import coordinatecalculator.domain.result.Result;
 
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.stream.Collectors;
 
 public class Rectangle implements Figure {
 
-    private final List<AttributeCreator> attributeCreators = Lists.newArrayList(new TriangleAreaAttributeCreator());
+    private final List<AttributeCreator> attributeCreators = Lists.newArrayList(new RectangleAreaAttributeCreator());
 
     private List<Point> points;
 
