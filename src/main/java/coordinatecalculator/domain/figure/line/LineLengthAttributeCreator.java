@@ -14,11 +14,6 @@ public class LineLengthAttributeCreator implements AttributeCreator {
         Point startPoint = points.get(0);
         Point endPoint = points.get(1);
 
-        return String.format(LINE_LENGTH_ATTRIBUTES_MESSAGE_FORMAT, calculateDistance(startPoint, endPoint));
-    }
-
-    private Double calculateDistance(Point startPoint, Point endPoint) {
-        return Math.sqrt(Math.pow(endPoint.xValue() - startPoint.xValue(), 2)
-                + Math.pow(endPoint.yValue() - startPoint.yValue(), 2));
+        return String.format(LINE_LENGTH_ATTRIBUTES_MESSAGE_FORMAT, startPoint.calculateDistance(endPoint));
     }
 }
