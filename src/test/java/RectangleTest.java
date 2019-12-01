@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class RectangleTest {
     private final Coordinate x1 = CoordinateFactory.get("10");
@@ -25,6 +26,12 @@ public class RectangleTest {
     @DisplayName("점 4개를 사용하여 사각형 객체를 정상적으로 생성한다.")
     void create_Rectangle() {
         assertDoesNotThrow(() -> new Rectangle(Arrays.asList(p1, p2, p3, p4)));
+    }
+
+    @Test
+    @DisplayName("중복된 점으로 사각형 생성시 예외가 발생한다.")
+    void create_duplicated_points() {
+        assertThrows(DuplicatePointException.class, () -> new Rectangle(Arrays.asList(p1, p1, p2, p3)));
     }
 
     @Test

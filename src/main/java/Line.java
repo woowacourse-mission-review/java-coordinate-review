@@ -1,20 +1,15 @@
-public class Line {
-    private final Point p1;
-    private final Point p2;
+import java.util.List;
 
-    public Line(Point p1, Point p2) {
-        validate(p1, p2);
-        this.p1 = p1;
-        this.p2 = p2;
-    }
+public class Line extends Shape {
 
-    private void validate(Point p1, Point p2) {
-        if (p1.equals(p2)) {
-            throw new InvalidLineException();
-        }
+    public Line(List<Point> points) {
+        super(points);
     }
 
     public Double length() {
+        Point p1 = points.get(0);
+        Point p2 = points.get(1);
+
         Integer diffX = p1.minusX(p2);
         Integer diffY = p1.minusY(p2);
 
