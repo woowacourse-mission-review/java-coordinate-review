@@ -3,6 +3,8 @@ package domain;
 import domain.coordinate.XCoordinate;
 import domain.coordinate.YCoordinate;
 
+import java.util.Objects;
+
 public class Point {
     private final XCoordinate x;
     private final YCoordinate y;
@@ -30,5 +32,23 @@ public class Point {
 
     public int subY(Point another) {
         return y.sub(another.y);
+    }
+
+    public double distance(Point another) {
+        return Math.sqrt(Math.pow(x.sub(another.x), 2.0) + Math.pow(y.sub(another.y), 2.0));
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point point = (Point) o;
+        return Objects.equals(x, point.x) &&
+                Objects.equals(y, point.y);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 }
