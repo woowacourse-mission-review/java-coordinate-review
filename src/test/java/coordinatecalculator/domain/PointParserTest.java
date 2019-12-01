@@ -51,7 +51,7 @@ class PointParserTest {
     void parse_wrong_point_delimiter_format() {
         String inputPoints = "(1,2)=(3,4)";
 
-        assertThrows(IllegalArgumentException.class, () -> pointParser.parse(inputPoints));
+        assertThrows(InvalidInputFormatException.class, () -> pointParser.parse(inputPoints));
     }
 
     @Test
@@ -59,7 +59,7 @@ class PointParserTest {
     void parse_wrong_coordinate_delimiter_format() {
         String inputPoints = "(1_2)-(3_4)";
 
-        assertThrows(IllegalArgumentException.class, () -> pointParser.parse(inputPoints));
+        assertThrows(InvalidInputFormatException.class, () -> pointParser.parse(inputPoints));
     }
 
     @Test
@@ -67,6 +67,6 @@ class PointParserTest {
     void parse_not_integer_points_format() {
         String inputPoints = "(일,이)-(삼,사)";
 
-        assertThrows(IllegalArgumentException.class, () -> pointParser.parse(inputPoints));
+        assertThrows(InvalidInputFormatException.class, () -> pointParser.parse(inputPoints));
     }
 }

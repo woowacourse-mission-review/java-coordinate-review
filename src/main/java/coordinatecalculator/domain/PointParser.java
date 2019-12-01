@@ -25,7 +25,7 @@ public class PointParser {
         Matcher entireMatcher = ENTIRE_POINT_INPUT_PATTERN.matcher(inputRawPoints);
 
         if (!entireMatcher.matches()) {
-            throw new IllegalArgumentException();
+            throw new InvalidInputFormatException();
         }
     }
 

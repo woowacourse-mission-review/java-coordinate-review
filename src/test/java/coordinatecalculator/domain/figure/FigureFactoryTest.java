@@ -1,5 +1,6 @@
 package coordinatecalculator.domain.figure;
 
+import coordinatecalculator.domain.figure.exception.InvalidFigureCreationException;
 import coordinatecalculator.domain.figure.line.Line;
 import org.assertj.core.util.Lists;
 import org.junit.jupiter.api.DisplayName;
@@ -11,6 +12,7 @@ import static coordinatecalculator.domain.coordinates.XCoordinate.MAX_X_COORDINA
 import static coordinatecalculator.domain.coordinates.XCoordinate.MIN_X_COORDINATE;
 import static coordinatecalculator.domain.coordinates.YCoordinate.MAX_Y_COORDINATE;
 import static coordinatecalculator.domain.coordinates.YCoordinate.MIN_Y_COORDINATE;
+import static coordinatecalculator.domain.figure.FigureFactory.INVALID_FIGURE_CREATION_EXCEPTION_MESSAGE;
 import static org.junit.jupiter.api.Assertions.*;
 
 class FigureFactoryTest {
@@ -23,7 +25,9 @@ class FigureFactoryTest {
         Point point = Point.of(MIN_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point);
 
-        assertThrows(IllegalArgumentException.class, () -> figureFactory.createFigure(points));
+        InvalidFigureCreationException exception = assertThrows(InvalidFigureCreationException.class
+                , () -> figureFactory.createFigure(points));
+        assertEquals(exception.getMessage(), INVALID_FIGURE_CREATION_EXCEPTION_MESSAGE);
     }
 
     @Test
@@ -45,6 +49,8 @@ class FigureFactoryTest {
         Point point = Point.of(MIN_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point, point);
 
-        assertThrows(IllegalArgumentException.class, () -> figureFactory.createFigure(points));
+        InvalidFigureCreationException exception = assertThrows(InvalidFigureCreationException.class
+                , () -> figureFactory.createFigure(points));
+        assertEquals(exception.getMessage(), INVALID_FIGURE_CREATION_EXCEPTION_MESSAGE);
     }
 }

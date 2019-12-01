@@ -5,11 +5,14 @@ import com.google.common.collect.Sets;
 import coordinatecalculator.domain.figure.AttributeCreator;
 import coordinatecalculator.domain.figure.Figure;
 import coordinatecalculator.domain.figure.Point;
+import coordinatecalculator.domain.figure.exception.InvalidFigureCreationException;
 
 import java.util.List;
 import java.util.Objects;
 
 public class Line extends Figure {
+
+    public static final String INVALID_LINE_CREATION_EXCEPTION_MESSAGE = "직선은 같지 않은 두 개의 점을 입력해야 합니다.";
 
     private static final List<AttributeCreator> LINE_ATTRIBUTE_CREATOR = Lists.newArrayList(new LineLengthAttributeCreator());
 
@@ -19,7 +22,7 @@ public class Line extends Figure {
 
     public static Line of(final List<Point> points) {
         if (isInvalidLine(points)) {
-            throw new IllegalArgumentException();
+            throw new InvalidFigureCreationException(INVALID_LINE_CREATION_EXCEPTION_MESSAGE);
         }
         return new Line(points);
     }

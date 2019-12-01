@@ -1,12 +1,14 @@
 package coordinatecalculator.service;
 
+import coordinatecalculator.domain.InvalidInputFormatException;
 import coordinatecalculator.domain.figure.Point;
+import coordinatecalculator.domain.figure.exception.InvalidFigureCreationException;
 import coordinatecalculator.domain.result.Result;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static coordinatecalculator.domain.figure.FigureFactory.INVALID_FIGURE_CREATION_EXCEPTION_MESSAGE;
+import static org.junit.jupiter.api.Assertions.*;
 
 class CoordinateCalculatorServiceTest {
 
@@ -27,7 +29,9 @@ class CoordinateCalculatorServiceTest {
     void calculate_one_point() {
         String input = "(1,2)";
 
-        assertThrows(IllegalArgumentException.class, () -> service.calculate(input));
+        InvalidFigureCreationException exception = assertThrows(InvalidFigureCreationException.class
+                , () -> service.calculate(input));
+        assertEquals(exception.getMessage(), INVALID_FIGURE_CREATION_EXCEPTION_MESSAGE);
     }
 
     @Test
@@ -35,7 +39,9 @@ class CoordinateCalculatorServiceTest {
     void calculate_over_4_points() {
         String input = "(1,1)-(20,10)-(1,10)-(20,10)-(10,20)";
 
-        assertThrows(IllegalArgumentException.class, () -> service.calculate(input));
+        InvalidFigureCreationException exception = assertThrows(InvalidFigureCreationException.class
+                , () -> service.calculate(input));
+        assertEquals(exception.getMessage(), INVALID_FIGURE_CREATION_EXCEPTION_MESSAGE);
     }
 
     @Test
@@ -43,7 +49,7 @@ class CoordinateCalculatorServiceTest {
     void calculate_wrong_point_delimiter_format() {
         String input = "(1,2)=(3,4)";
 
-        assertThrows(IllegalArgumentException.class, () -> service.calculate(input));
+        assertThrows(InvalidInputFormatException.class, () -> service.calculate(input));
     }
 
     @Test
@@ -51,7 +57,7 @@ class CoordinateCalculatorServiceTest {
     void calculate_wrong_coordinate_delimiter_format() {
         String input = "(1_2)-(3_4)";
 
-        assertThrows(IllegalArgumentException.class, () -> service.calculate(input));
+        assertThrows(InvalidInputFormatException.class, () -> service.calculate(input));
     }
 
     @Test
@@ -59,6 +65,6 @@ class CoordinateCalculatorServiceTest {
     void calculate_not_integer_point_format() {
         String input = "(one,two)-(three,four)";
 
-        assertThrows(IllegalArgumentException.class, () -> service.calculate(input));
+        assertThrows(InvalidInputFormatException.class, () -> service.calculate(input));
     }
 }

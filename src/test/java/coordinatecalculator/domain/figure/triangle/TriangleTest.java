@@ -2,6 +2,7 @@ package coordinatecalculator.domain.figure.triangle;
 
 import com.google.common.collect.Lists;
 import coordinatecalculator.domain.figure.Point;
+import coordinatecalculator.domain.figure.exception.InvalidFigureCreationException;
 import org.assertj.core.util.Sets;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ import static coordinatecalculator.domain.coordinates.XCoordinate.MAX_X_COORDINA
 import static coordinatecalculator.domain.coordinates.XCoordinate.MIN_X_COORDINATE;
 import static coordinatecalculator.domain.coordinates.YCoordinate.MAX_Y_COORDINATE;
 import static coordinatecalculator.domain.coordinates.YCoordinate.MIN_Y_COORDINATE;
+import static coordinatecalculator.domain.figure.triangle.Triangle.INVALID_TRIANGLE_CREATION_EXCEPTION_MESSAGE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,7 +37,9 @@ class TriangleTest {
         Point point2 = Point.of(MAX_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> twoPoints = Lists.newArrayList(point1, point2);
 
-        assertThrows(IllegalArgumentException.class, () -> Triangle.of(twoPoints));
+        InvalidFigureCreationException exception = assertThrows(InvalidFigureCreationException.class
+                , () -> Triangle.of(twoPoints));
+        assertEquals(exception.getMessage(), INVALID_TRIANGLE_CREATION_EXCEPTION_MESSAGE);
     }
 
     @Test
@@ -47,7 +51,9 @@ class TriangleTest {
         Point point4 = Point.of(MAX_X_COORDINATE, MIN_Y_COORDINATE);
         List<Point> fourPoints = Lists.newArrayList(point1, point2, point3, point4);
 
-        assertThrows(IllegalArgumentException.class, () -> Triangle.of(fourPoints));
+        InvalidFigureCreationException exception = assertThrows(InvalidFigureCreationException.class
+                , () -> Triangle.of(fourPoints));
+        assertEquals(exception.getMessage(), INVALID_TRIANGLE_CREATION_EXCEPTION_MESSAGE);
     }
 
     @Test
@@ -57,7 +63,9 @@ class TriangleTest {
         Point point2 = Point.of(MAX_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point2);
 
-        assertThrows(IllegalArgumentException.class, () -> Triangle.of(points));
+        InvalidFigureCreationException exception = assertThrows(InvalidFigureCreationException.class
+                , () -> Triangle.of(points));
+        assertEquals(exception.getMessage(), INVALID_TRIANGLE_CREATION_EXCEPTION_MESSAGE);
     }
 
     @Test
@@ -68,7 +76,9 @@ class TriangleTest {
         Point point3 = Point.of(MIN_X_COORDINATE + 1, MIN_Y_COORDINATE + 1);
         List<Point> points = Lists.newArrayList(point1, point2, point3);
 
-        assertThrows(IllegalArgumentException.class, () -> Triangle.of(points));
+        InvalidFigureCreationException exception = assertThrows(InvalidFigureCreationException.class
+                , () -> Triangle.of(points));
+        assertEquals(exception.getMessage(), INVALID_TRIANGLE_CREATION_EXCEPTION_MESSAGE);
     }
 
     @Test

@@ -1,6 +1,7 @@
 package coordinatecalculator.domain.coordinates;
 
 import com.google.common.collect.Maps;
+import coordinatecalculator.domain.coordinates.exception.InvalidCoordinateException;
 
 import java.util.Map;
 import java.util.Objects;
@@ -9,6 +10,9 @@ public class XCoordinate implements Coordinate {
 
     public static final int MAX_X_COORDINATE = 24;
     public static final int MIN_X_COORDINATE = 1;
+
+    public static final String X_COORDINATE_INVALID_EXCEPTION_MESSAGE = String.format("X 좌표는 %d~%d 사이의 정수여야 합니다."
+            , MIN_X_COORDINATE, MAX_X_COORDINATE);
 
     private static final Map<Integer, XCoordinate> xCoordinatePool = Maps.newHashMap();
 
@@ -21,10 +25,10 @@ public class XCoordinate implements Coordinate {
 
     private void validate(final int coordinate) {
         if (coordinate > MAX_X_COORDINATE) {
-            throw new IllegalArgumentException();
+            throw new InvalidCoordinateException(X_COORDINATE_INVALID_EXCEPTION_MESSAGE);
         }
         if (coordinate < MIN_X_COORDINATE) {
-            throw new IllegalArgumentException();
+            throw new InvalidCoordinateException(X_COORDINATE_INVALID_EXCEPTION_MESSAGE);
         }
     }
 

@@ -5,11 +5,14 @@ import com.google.common.collect.Sets;
 import coordinatecalculator.domain.figure.AttributeCreator;
 import coordinatecalculator.domain.figure.Figure;
 import coordinatecalculator.domain.figure.Point;
+import coordinatecalculator.domain.figure.exception.InvalidFigureCreationException;
 
 import java.util.List;
 import java.util.Objects;
 
 public class Triangle extends Figure {
+
+    public static final String INVALID_TRIANGLE_CREATION_EXCEPTION_MESSAGE = "겹치지 않고, 한 직선에 포함되지 않는 세 점을 입력해야 합니다.";
 
     private static final List<AttributeCreator> TRIANGLE_ATTRIBUTE_CREATOR = Lists.newArrayList(new TriangleAreaAttributeCreator());
 
@@ -19,7 +22,7 @@ public class Triangle extends Figure {
 
     public static Triangle of(final List<Point> points) {
         if (isInvalidTriangle(points)) {
-            throw new IllegalArgumentException();
+            throw new InvalidFigureCreationException(INVALID_TRIANGLE_CREATION_EXCEPTION_MESSAGE);
         }
         return new Triangle(points);
     }

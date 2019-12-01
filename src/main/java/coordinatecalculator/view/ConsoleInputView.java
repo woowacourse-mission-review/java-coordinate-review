@@ -1,5 +1,7 @@
 package coordinatecalculator.view;
 
+import coordinatecalculator.view.exception.MaxRepeatCountExceedException;
+
 import java.util.Scanner;
 
 public class ConsoleInputView implements InputView {
@@ -11,7 +13,7 @@ public class ConsoleInputView implements InputView {
     @Override
     public String inputPoints(final int repeatCount) {
         if (repeatCount >= MAX_REPEAT_COUNT) {
-            throw new RuntimeException();
+            throw new MaxRepeatCountExceedException();
         }
         System.out.println("좌표를 입력하세요.");
         return scanner.nextLine();

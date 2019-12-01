@@ -5,6 +5,7 @@ import com.google.common.collect.Sets;
 import coordinatecalculator.domain.figure.AttributeCreator;
 import coordinatecalculator.domain.figure.Figure;
 import coordinatecalculator.domain.figure.Point;
+import coordinatecalculator.domain.figure.exception.InvalidFigureCreationException;
 
 import java.util.List;
 import java.util.Objects;
@@ -12,6 +13,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 public class Rectangle extends Figure {
+
+    public static final String INVALID_RECTANGLE_CREATION_EXCEPTION_MESSAGE = "겹치지 않고, 기울어지지 않은 직사각형을 입력해야 합니다.";
 
     private static final List<AttributeCreator> RECTANGLE_ATTRIBUTE_CREATOR = Lists.newArrayList(new RectangleAreaAttributeCreator());
 
@@ -21,7 +24,7 @@ public class Rectangle extends Figure {
 
     public static Rectangle of(final List<Point> points) {
         if (isInvalidRectangle(points)) {
-            throw new IllegalArgumentException();
+            throw new InvalidFigureCreationException(INVALID_RECTANGLE_CREATION_EXCEPTION_MESSAGE);
         }
         return new Rectangle(points);
     }

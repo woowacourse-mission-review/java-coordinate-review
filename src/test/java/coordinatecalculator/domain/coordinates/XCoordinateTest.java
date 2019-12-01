@@ -1,10 +1,10 @@
 package coordinatecalculator.domain.coordinates;
 
+import coordinatecalculator.domain.coordinates.exception.InvalidCoordinateException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static coordinatecalculator.domain.coordinates.XCoordinate.MAX_X_COORDINATE;
-import static coordinatecalculator.domain.coordinates.XCoordinate.MIN_X_COORDINATE;
+import static coordinatecalculator.domain.coordinates.XCoordinate.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class XCoordinateTest {
@@ -18,13 +18,17 @@ class XCoordinateTest {
     @Test
     @DisplayName("최소 좌표값 미만의 값을 입력할 경우 에러 발생")
     void generate_xCoordinate_under_min_boundary() {
-        assertThrows(IllegalArgumentException.class, () -> XCoordinate.of(MIN_X_COORDINATE - 1));
+        InvalidCoordinateException exception = assertThrows(InvalidCoordinateException.class
+                , () -> XCoordinate.of(MIN_X_COORDINATE - 1));
+        assertEquals(exception.getMessage(), X_COORDINATE_INVALID_EXCEPTION_MESSAGE);
     }
 
     @Test
     @DisplayName("최대 좌표값을 초과한 값을 입력할 경우 에러 발생")
     void generate_xCoordinate_over_max_boundary() {
-        assertThrows(IllegalArgumentException.class, () -> XCoordinate.of(MAX_X_COORDINATE + 1));
+        InvalidCoordinateException exception = assertThrows(InvalidCoordinateException.class
+                , () -> XCoordinate.of(MAX_X_COORDINATE + 1));
+        assertEquals(exception.getMessage(), X_COORDINATE_INVALID_EXCEPTION_MESSAGE);
     }
 
     @Test

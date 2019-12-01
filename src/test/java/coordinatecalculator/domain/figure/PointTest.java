@@ -1,5 +1,6 @@
 package coordinatecalculator.domain.figure;
 
+import coordinatecalculator.domain.coordinates.exception.InvalidCoordinateException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -23,29 +24,29 @@ class PointTest {
     @Test
     @DisplayName("X 좌표가 최솟값보다 작은 경우 에러")
     void generate_point_under_min_x_coordinate() {
-        assertThrows(IllegalArgumentException.class, () -> Point.of(MIN_X_COORDINATE - 1, MIN_Y_COORDINATE));
-        assertThrows(IllegalArgumentException.class, () -> Point.of(MIN_X_COORDINATE - 1, MAX_Y_COORDINATE));
+        assertThrows(InvalidCoordinateException.class, () -> Point.of(MIN_X_COORDINATE - 1, MIN_Y_COORDINATE));
+        assertThrows(InvalidCoordinateException.class, () -> Point.of(MIN_X_COORDINATE - 1, MAX_Y_COORDINATE));
     }
 
     @Test
     @DisplayName("X 좌표가 최댓값보다 큰 경우 에러")
     void generate_point_over_max_x_coordinate() {
-        assertThrows(IllegalArgumentException.class, () -> Point.of(MAX_X_COORDINATE + 1, MIN_Y_COORDINATE));
-        assertThrows(IllegalArgumentException.class, () -> Point.of(MAX_X_COORDINATE + 1, MAX_Y_COORDINATE));
+        assertThrows(InvalidCoordinateException.class, () -> Point.of(MAX_X_COORDINATE + 1, MIN_Y_COORDINATE));
+        assertThrows(InvalidCoordinateException.class, () -> Point.of(MAX_X_COORDINATE + 1, MAX_Y_COORDINATE));
     }
 
     @Test
     @DisplayName("Y 좌표가 최솟값보다 작은 경우 에러")
     void generate_point_under_min_y_coordinate() {
-        assertThrows(IllegalArgumentException.class, () -> Point.of(MIN_X_COORDINATE, MIN_Y_COORDINATE - 1));
-        assertThrows(IllegalArgumentException.class, () -> Point.of(MAX_X_COORDINATE, MIN_Y_COORDINATE - 1));
+        assertThrows(InvalidCoordinateException.class, () -> Point.of(MIN_X_COORDINATE, MIN_Y_COORDINATE - 1));
+        assertThrows(InvalidCoordinateException.class, () -> Point.of(MAX_X_COORDINATE, MIN_Y_COORDINATE - 1));
     }
 
     @Test
     @DisplayName("Y 좌표가 최댓값보다 큰 경우 에러")
     void generate_point_over_max_y_coordinate() {
-        assertThrows(IllegalArgumentException.class, () -> Point.of(MIN_X_COORDINATE, MAX_Y_COORDINATE + 1));
-        assertThrows(IllegalArgumentException.class, () -> Point.of(MAX_X_COORDINATE, MAX_Y_COORDINATE + 1));
+        assertThrows(InvalidCoordinateException.class, () -> Point.of(MIN_X_COORDINATE, MAX_Y_COORDINATE + 1));
+        assertThrows(InvalidCoordinateException.class, () -> Point.of(MAX_X_COORDINATE, MAX_Y_COORDINATE + 1));
     }
 
     @Test

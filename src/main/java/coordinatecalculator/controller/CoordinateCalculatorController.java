@@ -1,5 +1,8 @@
 package coordinatecalculator.controller;
 
+import coordinatecalculator.domain.InvalidInputFormatException;
+import coordinatecalculator.domain.coordinates.exception.InvalidCoordinateException;
+import coordinatecalculator.domain.figure.exception.InvalidFigureCreationException;
 import coordinatecalculator.domain.result.Result;
 import coordinatecalculator.service.CoordinateCalculatorService;
 import coordinatecalculator.view.InputView;
@@ -26,7 +29,7 @@ public class CoordinateCalculatorController {
     private Result inputPoints(final int repeatCount) {
         try {
             return calculatorService.calculate(inputView.inputPoints(repeatCount));
-        } catch (IllegalArgumentException e) {
+        } catch (InvalidInputFormatException | InvalidFigureCreationException | InvalidCoordinateException e) {
             outputView.printErrorMessage(e);
             return inputPoints(repeatCount + 1);
         }

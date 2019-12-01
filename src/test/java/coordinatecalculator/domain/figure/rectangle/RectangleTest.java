@@ -2,6 +2,7 @@ package coordinatecalculator.domain.figure.rectangle;
 
 import com.google.common.collect.Lists;
 import coordinatecalculator.domain.figure.Point;
+import coordinatecalculator.domain.figure.exception.InvalidFigureCreationException;
 import org.assertj.core.util.Sets;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,6 +13,7 @@ import static coordinatecalculator.domain.coordinates.XCoordinate.MAX_X_COORDINA
 import static coordinatecalculator.domain.coordinates.XCoordinate.MIN_X_COORDINATE;
 import static coordinatecalculator.domain.coordinates.YCoordinate.MAX_Y_COORDINATE;
 import static coordinatecalculator.domain.coordinates.YCoordinate.MIN_Y_COORDINATE;
+import static coordinatecalculator.domain.figure.rectangle.Rectangle.INVALID_RECTANGLE_CREATION_EXCEPTION_MESSAGE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -37,7 +39,9 @@ class RectangleTest {
         Point point3 = Point.of(MAX_X_COORDINATE, MIN_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point3);
 
-        assertThrows(IllegalArgumentException.class, () -> Rectangle.of(points));
+        InvalidFigureCreationException exception = assertThrows(InvalidFigureCreationException.class
+                , () -> Rectangle.of(points));
+        assertEquals(exception.getMessage(), INVALID_RECTANGLE_CREATION_EXCEPTION_MESSAGE);
     }
 
     @Test
@@ -50,7 +54,9 @@ class RectangleTest {
         Point point5 = Point.of(MAX_X_COORDINATE, MAX_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point3, point4, point5);
 
-        assertThrows(IllegalArgumentException.class, () -> Rectangle.of(points));
+        InvalidFigureCreationException exception = assertThrows(InvalidFigureCreationException.class
+                , () -> Rectangle.of(points));
+        assertEquals(exception.getMessage(), INVALID_RECTANGLE_CREATION_EXCEPTION_MESSAGE);
     }
 
     @Test
@@ -62,7 +68,9 @@ class RectangleTest {
         Point point4 = Point.of(MAX_X_COORDINATE, MIN_Y_COORDINATE);
         List<Point> points = Lists.newArrayList(point1, point2, point3, point4);
 
-        assertThrows(IllegalArgumentException.class, () -> Rectangle.of(points));
+        InvalidFigureCreationException exception = assertThrows(InvalidFigureCreationException.class
+                , () -> Rectangle.of(points));
+        assertEquals(exception.getMessage(), INVALID_RECTANGLE_CREATION_EXCEPTION_MESSAGE);
     }
 
     @Test
@@ -74,7 +82,9 @@ class RectangleTest {
         Point point4 = Point.of(3, 2);
         List<Point> points = Lists.newArrayList(point1, point2, point3, point4);
 
-        assertThrows(IllegalArgumentException.class, () -> Rectangle.of(points));
+        InvalidFigureCreationException exception = assertThrows(InvalidFigureCreationException.class
+                , () -> Rectangle.of(points));
+        assertEquals(exception.getMessage(), INVALID_RECTANGLE_CREATION_EXCEPTION_MESSAGE);
     }
 
     @Test
