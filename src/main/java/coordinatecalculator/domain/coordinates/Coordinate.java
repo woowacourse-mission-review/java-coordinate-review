@@ -1,4 +1,4 @@
-package coordinatecalculator.domain;
+package coordinatecalculator.domain.coordinates;
 
 public class Coordinate {
 

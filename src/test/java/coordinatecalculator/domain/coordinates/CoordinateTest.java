@@ -1,4 +1,4 @@
-package coordinatecalculator.domain;
+package coordinatecalculator.domain.coordinates;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
