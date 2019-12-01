@@ -4,8 +4,9 @@
 요구사항: https://techcourse.woowahan.com/s/1aKh56So/ls/hugu4eYX
 
 # To-do-list
-- [ ] XCoordinate, YCoordinate
+- [x] XCoordinate, YCoordinate
     - X, Y 좌표는 0~24 사이의 정수값으로 가정한다.
+    - 캐싱을 통해 객체의 재생성을 막는다.
     
 - [ ] Vector
     - 두 점을 받아 두 번째 점에서 첫 번째 점을 빼서 벡터를 만든다.
@@ -35,3 +36,4 @@
     
 # Refactoring / Thoughts
 - XCoordinate, YCoordinate 을 enum 으로 만든다면?
+- XCoordinate 과 YCoordinate 코드의 상당부분이 중복. 허용 가능한 중복인가?
