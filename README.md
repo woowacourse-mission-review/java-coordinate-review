@@ -1,5 +1,11 @@
 # java-coordinate
-좌표계산기 미션을 진행하기 위한 저장소
 
-요구사항: https://techcourse.woowahan.com/s/1aKh56So/ls/hugu4eYX
+## 요구사항
+### 점(Point)
+- x, y 좌표로 나눠져있다.
+- x, y 좌표의 최대 크기는 24이다.
+- x, y 좌표는 0을 포함한 양의 정수이다.
 
+### 선(Line)
+- 점 두 개를 가진다.
+- 두 점 사이 거리는 제곱근 `((A.x - B.x)^제곱 + (A.y - B.y)^제곱)` 공식으로 계산할 수 있다.
