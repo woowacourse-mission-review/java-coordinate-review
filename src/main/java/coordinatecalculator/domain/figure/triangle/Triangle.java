@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 
 public class Triangle implements Figure {
 
-    private final List<AttributeCreator> attributeCreators = Lists.newArrayList();
+    private final List<AttributeCreator> attributeCreators = Lists.newArrayList(new TriangleAreaAttributeCreator());
 
     private final List<Point> points;
 
