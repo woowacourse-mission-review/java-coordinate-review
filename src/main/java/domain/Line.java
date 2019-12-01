@@ -1,3 +1,5 @@
+package domain;
+
 import java.util.List;
 
 public class Line extends Shape {
@@ -13,6 +15,6 @@ public class Line extends Shape {
         Integer diffX = p1.minusX(p2);
         Integer diffY = p1.minusY(p2);
 
-        return Math.sqrt(diffX * diffX +diffY * diffY);
+        return Math.sqrt(diffX * diffX + diffY * diffY);
     }
 }

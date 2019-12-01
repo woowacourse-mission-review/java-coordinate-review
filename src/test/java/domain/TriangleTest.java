@@ -1,3 +1,6 @@
+package domain;
+
+import domain.exception.DuplicatePointException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

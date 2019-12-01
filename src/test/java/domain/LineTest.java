@@ -1,3 +1,6 @@
+package domain;
+
+import domain.exception.DuplicatePointException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -18,13 +21,13 @@ public class LineTest {
     private final Point p2 = new Point(x2, y2);
 
     @Test
-    @DisplayName("두 점을 가지는 Line 객체를 생성한다.")
+    @DisplayName("두 점을 가지는 domain.Line 객체를 생성한다.")
     void create_Lint() {
         assertDoesNotThrow(() -> new Line(Arrays.asList(p1, p2)));
     }
 
     @Test
-    @DisplayName("두 점이 같은 Line 객체를 생성할 시 예외를 발생시킨다.")
+    @DisplayName("두 점이 같은 domain.Line 객체를 생성할 시 예외를 발생시킨다.")
     void create_same_points_line() {
         assertThrows(DuplicatePointException.class, () -> new Line(Arrays.asList(p1, p1)));
     }

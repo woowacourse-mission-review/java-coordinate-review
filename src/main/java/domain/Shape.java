@@ -1,3 +1,7 @@
+package domain;
+
+import domain.exception.DuplicatePointException;
+
 import java.util.HashSet;
 import java.util.List;
 

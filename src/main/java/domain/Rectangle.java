@@ -1,8 +1,10 @@
+package domain;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-public class Rectangle extends Shape{
+public class Rectangle extends Shape {
 
     public Rectangle(List<Point> points) {
         super(points);

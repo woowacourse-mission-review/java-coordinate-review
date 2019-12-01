@@ -1,3 +1,7 @@
+package domain;
+
+import domain.exception.InvalidNumberOfPointsException;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

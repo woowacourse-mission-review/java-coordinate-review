@@ -1,12 +1,16 @@
+package domain;
+
+import domain.exception.DuplicatePointException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class ShapeFactoryTest {
+public class RectangleTest {
     private final Coordinate x1 = CoordinateFactory.get("10");
     private final Coordinate y1 = CoordinateFactory.get("10");
     private final Coordinate x2 = CoordinateFactory.get("22");
@@ -20,30 +24,23 @@ public class ShapeFactoryTest {
     private final Point p2 = new Point(x2, y2);
     private final Point p3 = new Point(x3, y3);
     private final Point p4 = new Point(x4, y4);
-    private final Point p5 = new Point(x1, y4);
 
     @Test
-    @DisplayName("점 두 개를 사용하여 선 객체를 생성한다.")
-    void create_Line() {
-        assertDoesNotThrow(() -> ShapeFactory.create(Arrays.asList(p1, p2)));
-    }
-
-    @Test
-    @DisplayName("점 세 개를 사용하여 삼까형 객체를 생성한다.")
-    void create_Triangle() {
-        assertDoesNotThrow(() -> ShapeFactory.create(Arrays.asList(p1, p2, p3)));
-    }
-
-    @Test
-    @DisplayName("점 네 개를 사용하여 사각형 객체를 생성한다.")
+    @DisplayName("점 4개를 사용하여 사각형 객체를 정상적으로 생성한다.")
     void create_Rectangle() {
-        assertDoesNotThrow(() -> ShapeFactory.create(Arrays.asList(p1, p2, p3, p4)));
+        assertDoesNotThrow(() -> new Rectangle(Arrays.asList(p1, p2, p3, p4)));
     }
 
     @Test
-    @DisplayName("유효하지 않는 점 개수로 Shape 생성 시 예외가 발생한다.")
-    void create_invalid_Shape() {
-        assertThrows(InvalidNumberOfPointsException.class,
-                () -> ShapeFactory.create(Arrays.asList(p1, p2, p3, p4, p5)));
+    @DisplayName("중복된 점으로 사각형 생성시 예외가 발생한다.")
+    void create_duplicated_points() {
+        assertThrows(DuplicatePointException.class, () -> new Rectangle(Arrays.asList(p1, p1, p2, p3)));
+    }
+
+    @Test
+    @DisplayName("사각형의 넓이를 구한다.")
+    void get_area() {
+        Rectangle rectangle = new Rectangle(Arrays.asList(p1, p2, p3, p4));
+        assertThat(rectangle.area()).isEqualTo(96);
     }
 }

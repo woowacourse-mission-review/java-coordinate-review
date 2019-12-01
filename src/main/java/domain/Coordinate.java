@@ -1,3 +1,7 @@
+package domain;
+
+import domain.exception.InvalidCoordinateException;
+
 import java.util.Objects;
 
 public class Coordinate {

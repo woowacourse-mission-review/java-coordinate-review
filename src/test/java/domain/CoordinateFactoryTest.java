@@ -1,3 +1,6 @@
+package domain;
+
+import domain.exception.InvalidCoordinateException;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
