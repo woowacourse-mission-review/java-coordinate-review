@@ -20,6 +20,11 @@ public class ConsoleOutputView implements OutputView {
     private static final String CROSS_AXIS_POINT_STRING_FORMAT = "%1s";
 
     @Override
+    public void printErrorMessage(final Exception e) {
+        System.out.println(e.getMessage());
+    }
+
+    @Override
     public void printResult(final Result result) {
         StringBuilder sb = new StringBuilder();
         drawResult(result, sb);
