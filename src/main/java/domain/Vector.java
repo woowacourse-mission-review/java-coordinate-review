@@ -17,6 +17,10 @@ public class Vector {
         return x * another.x + y * another.y;
     }
 
+    public double size() {
+        return Math.sqrt(innerProduct(this));
+    }
+
     public int getX() {
         return x;
     }
