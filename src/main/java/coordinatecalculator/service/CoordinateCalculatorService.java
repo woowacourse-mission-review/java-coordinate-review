@@ -13,7 +13,7 @@ public class CoordinateCalculatorService {
     private final FigureFactory figureFactory = new FigureFactory();
     private final PointParser pointParser = new PointParser();
 
-    public Result calculate(String rawInputPoints) {
+    public Result calculate(final String rawInputPoints) {
         List<Point> points = pointParser.parse(rawInputPoints);
         Figure figure = figureFactory.createFigure(points);
         return figure.createResult();

@@ -44,7 +44,7 @@ public class PointParser {
     }
 
     private Point parseCoordinates(final String s) {
-        String[] points2 = s.split(COORDINATES_DELIMITER);
-        return Point.of(Integer.parseInt(points2[0]), Integer.parseInt(points2[1]));
+        String[] coordinates = s.split(COORDINATES_DELIMITER);
+        return Point.of(Integer.parseInt(coordinates[0]), Integer.parseInt(coordinates[1]));
     }
 }

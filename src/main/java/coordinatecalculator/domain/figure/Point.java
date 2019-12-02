@@ -19,7 +19,7 @@ public class Point {
         return new Point(XCoordinate.of(xCoordinate), YCoordinate.of(yCoordinate));
     }
 
-    public double calculateDistance(Point target) {
+    public double calculateDistance(final Point target) {
         return Math.sqrt(Math.pow(xValue() - target.xValue(), 2)
                 + Math.pow(yValue() - target.yValue(), 2));
     }

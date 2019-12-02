@@ -72,7 +72,7 @@ public class ConsoleOutputView implements OutputView {
         sb.append(NEW_LINE);
     }
 
-    private boolean isEvenNumber(int target) {
+    private boolean isEvenNumber(final int target) {
         return target % 2 == 0;
     }
 

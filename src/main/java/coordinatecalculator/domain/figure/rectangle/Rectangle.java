@@ -15,6 +15,8 @@ import java.util.stream.Collectors;
 public class Rectangle extends Figure {
 
     public static final String INVALID_RECTANGLE_CREATION_EXCEPTION_MESSAGE = "겹치지 않고, 기울어지지 않은 직사각형을 입력해야 합니다.";
+    private static final int RECTANGLE_POINT_SIZE = 4;
+    private static final int PAIR_SIZE = 2;
 
     private static final List<AttributeCreator> RECTANGLE_ATTRIBUTE_CREATOR = Lists.newArrayList(new RectangleAreaAttributeCreator());
 
@@ -30,7 +32,7 @@ public class Rectangle extends Figure {
     }
 
     static boolean isInvalidRectangle(final List<Point> points) {
-        if (points.size() != 4) {
+        if (points.size() != RECTANGLE_POINT_SIZE) {
             return true;
         }
         if (points.size() != Sets.newHashSet(points).size()) {
@@ -43,7 +45,7 @@ public class Rectangle extends Figure {
         List<Integer> xPoints = findPair(points, Point::xValue);
         List<Integer> yPoints = findPair(points, Point::yValue);
 
-        return xPoints.size() != 2 || yPoints.size() != 2;
+        return xPoints.size() != PAIR_SIZE || yPoints.size() != PAIR_SIZE;
     }
 
     private static List<Integer> findPair(final List<Point> points, final Function<Point, Integer> pairFunction) {

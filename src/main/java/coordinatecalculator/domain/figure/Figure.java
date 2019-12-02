@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 public abstract class Figure {
 
-    private final List<AttributeCreator> creators;
     protected final List<Point> points;
+    private final List<AttributeCreator> creators;
 
     public Figure(final List<Point> points, final List<AttributeCreator> creators) {
         this.points = points;

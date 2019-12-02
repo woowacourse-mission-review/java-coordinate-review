@@ -15,7 +15,7 @@ public class FigureFactory {
     private final List<FigureCreator> figureCreator = Lists.newArrayList(new LineCreator()
             , new TriangleCreator(), new RectangleCreator());
 
-    public Figure createFigure(List<Point> points) {
+    public Figure createFigure(final List<Point> points) {
         return figureCreator.stream()
                 .filter(creator -> creator.canCreate(points))
                 .map(creator -> creator.create(points))

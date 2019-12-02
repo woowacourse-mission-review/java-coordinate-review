@@ -13,6 +13,7 @@ import java.util.Objects;
 public class Triangle extends Figure {
 
     public static final String INVALID_TRIANGLE_CREATION_EXCEPTION_MESSAGE = "겹치지 않고, 한 직선에 포함되지 않는 세 점을 입력해야 합니다.";
+    private static final int TRIANGLE_POINT_SIZE = 3;
 
     private static final List<AttributeCreator> TRIANGLE_ATTRIBUTE_CREATOR = Lists.newArrayList(new TriangleAreaAttributeCreator());
 
@@ -28,7 +29,7 @@ public class Triangle extends Figure {
     }
 
     static boolean isInvalidTriangle(final List<Point> points) {
-        if (points.size() != 3) {
+        if (points.size() != TRIANGLE_POINT_SIZE) {
             return true;
         }
         if (points.size() != Sets.newHashSet(points).size()) {

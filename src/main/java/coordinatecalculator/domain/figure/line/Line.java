@@ -13,6 +13,7 @@ import java.util.Objects;
 public class Line extends Figure {
 
     public static final String INVALID_LINE_CREATION_EXCEPTION_MESSAGE = "직선은 같지 않은 두 개의 점을 입력해야 합니다.";
+    private static final int LINE_POINT_SIZE = 2;
 
     private static final List<AttributeCreator> LINE_ATTRIBUTE_CREATOR = Lists.newArrayList(new LineLengthAttributeCreator());
 
@@ -28,7 +29,7 @@ public class Line extends Figure {
     }
 
     static boolean isInvalidLine(final List<Point> points) {
-        if (points.size() != 2) {
+        if (points.size() != LINE_POINT_SIZE) {
             return true;
         }
         return Sets.newHashSet(points).size() != points.size();
