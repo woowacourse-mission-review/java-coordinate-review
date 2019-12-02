@@ -15,7 +15,9 @@ public abstract class Figure {
         this.creators = creators;
     }
 
-    public abstract boolean contains(Point point);
+    public boolean contains(Point point) {
+        return points.contains(point);
+    }
 
     public Result createResult() {
         List<String> attributesMessages = creators.stream()

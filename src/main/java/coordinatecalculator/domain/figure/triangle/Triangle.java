@@ -50,11 +50,6 @@ public class Triangle extends Figure {
     }
 
     @Override
-    public boolean contains(final Point point) {
-        return points.contains(point);
-    }
-
-    @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;

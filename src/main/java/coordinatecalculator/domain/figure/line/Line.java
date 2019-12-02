@@ -35,10 +35,6 @@ public class Line extends Figure {
         return Sets.newHashSet(points).size() != points.size();
     }
 
-    public boolean contains(final Point point) {
-        return points.contains(point);
-    }
-
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
