@@ -1,6 +1,7 @@
 package coordinate.domain.point;
 
 import java.util.List;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -29,8 +30,13 @@ public class PointGroupFactory {
     }
 
     private void validateInput(final String inputPoints) {
-        if (!VALID_INPUT_PATTERN.matcher(inputPoints).matches()) {
+        final Matcher matcher = VALID_INPUT_PATTERN.matcher(inputPoints);
+        if (isNotMatch(matcher)) {
             throw new IllegalArgumentException(NOT_VALID_INPUT_EXCEPTION_MESSAGE);
         }
+    }
+
+    private boolean isNotMatch(final Matcher matcher) {
+        return !matcher.matches();
     }
 }
