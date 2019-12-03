@@ -31,7 +31,7 @@ public class ConsoleApp {
         try {
             final String inputPoints = inputView.inputPoints();
             return pointGroupFactory.create(inputPoints);
-        } catch (Exception e) {
+        } catch (IllegalArgumentException e) {
             outputView.printException(e);
             return createPointGroup();
         }
