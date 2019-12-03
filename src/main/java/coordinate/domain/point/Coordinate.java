@@ -11,9 +11,11 @@ public class Coordinate {
 
     public static final int MAX_VALUE = 24;
     static final int MIN_VALUE = 0;
+    private static final int CACHE_MIN = 0;
+    private static final int CACHE_MAX = 24;
 
     static {
-        IntStream.range(MIN_VALUE, MAX_VALUE).forEach(value -> CACHE.put(value, new Coordinate(value)));
+        IntStream.range(CACHE_MIN, CACHE_MAX).forEach(value -> CACHE.put(value, new Coordinate(value)));
     }
 
     private final int value;
