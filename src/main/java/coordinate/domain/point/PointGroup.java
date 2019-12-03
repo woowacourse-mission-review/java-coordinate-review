@@ -18,7 +18,7 @@ public class PointGroup {
                 .sorted(Comparator.comparingInt(Point::getY))
                 .collect(Collectors.toList());
         validateEmpty();
-        validateDuplicate(points);
+        validateDuplicate();
     }
 
     private void validateEmpty() {
@@ -27,7 +27,7 @@ public class PointGroup {
         }
     }
 
-    private void validateDuplicate(final List<Point> points) {
+    private void validateDuplicate() {
         final Set<Point> set = new HashSet<>(points);
         if (points.size() != set.size()) {
             throw new IllegalArgumentException(DUPLICATED_POINT_EXCEPTION_MESSAGE);
