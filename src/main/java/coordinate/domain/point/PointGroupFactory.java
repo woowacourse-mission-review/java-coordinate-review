@@ -16,17 +16,20 @@ public class PointGroupFactory {
     public PointGroup create(final String inputPoints) {
         validateInput(inputPoints);
 
+        // 1,2 에서 ,제거 후 Point 생성
         final List<Point> points = Stream.of(inputPoints.split(DELIMITER_POINT))
                 .map(s -> s.substring(1, s.length() - 1)) // (1,2) 에서 () 제거
-                .map(point -> {                           // 1,2 에서 ,제거 후 Point 생성
-                    int index = point.indexOf(DELIMITER_COORDINATE);
-                    int x = Integer.parseInt(point.substring(0, index));
-                    int y = Integer.parseInt(point.substring(index + 1));
-                    return Point.of(x, y);
-                })
+                .map(this::toPoint)
                 .collect(Collectors.toList());
 
         return PointGroup.of(points);
+    }
+
+    private Point toPoint(final String point) {
+        int index = point.indexOf(DELIMITER_COORDINATE);
+        int x = Integer.parseInt(point.substring(0, index));
+        int y = Integer.parseInt(point.substring(index + 1));
+        return Point.of(x, y);
     }
 
     private void validateInput(final String inputPoints) {
