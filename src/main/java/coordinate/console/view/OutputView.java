@@ -12,13 +12,14 @@ public class OutputView {
         System.out.println(String.format("%s의 넓이는 %.2f", figure.getName(), figure.area()));
     }
 
+    // TODO: 2019/12/04 수정
     public void printGraph(final PointGroup pointGroup) {
         final Graph graph = new Graph(pointGroup);
         final boolean[][] coordinates = graph.getCoordinates();
 
         StringBuilder sb = new StringBuilder();
         for (int i = coordinates.length - 1; i >= 0; i--) {
-            sb.append(String.format("%2d|", i));
+            sb.append(String.format("%2d%s", i, POLE_HEIGHT));
             for (int j = 0; j < coordinates.length; j++) {
                 sb.append(coordinates[j][i] ? "*  " : "   ");
             }
@@ -33,7 +34,7 @@ public class OutputView {
         System.out.println(sb.toString());
     }
 
-    public void printException(final String message) {
-        System.err.println(message);
+    public void printException(final Exception exception) {
+        System.err.println(exception.getMessage());
     }
 }

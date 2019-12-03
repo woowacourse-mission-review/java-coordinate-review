@@ -32,7 +32,7 @@ public class ConsoleApp {
             final String inputPoints = inputView.inputPoints();
             return pointGroupFactory.create(inputPoints);
         } catch (Exception e) {
-            outputView.printException(e.getMessage());
+            outputView.printException(e);
             return createPointGroup();
         }
     }
