@@ -15,13 +15,14 @@ public class CoordinateCalculatorService {
     private static final String POINTS_INPUT_REGEX
             = "(\\((\\s)*[0-9]+(\\s)*,(\\s)*[0-9]+(\\s)*\\))((\\s)*-(\\s)*(\\((\\s)*[0-9]+(\\s)*,(\\s)*[0-9]+(\\s)*\\))){1,3}";
     private static final String POINT_INPUT_REGEX = "\\(([0-9]+),([0-9]+)\\)";
+    private static final Pattern POINTS_INPUT_PATTERN = Pattern.compile(POINTS_INPUT_REGEX);
+    private static final Pattern POINT_INPUT_PATTERN = Pattern.compile(POINT_INPUT_REGEX);
     private static final String POINT_DELIMITER = "-";
     private static final String BLANK = " ";
     private static final String EMPTY = "";
 
     public Points parsePointsInput(String pointsInput) {
-        Pattern pattern = Pattern.compile(POINTS_INPUT_REGEX);
-        Matcher matcher = pattern.matcher(pointsInput);
+        Matcher matcher = POINTS_INPUT_PATTERN.matcher(pointsInput);
 
         if (matcher.matches()) {
             return parsePoints(pointsInput);
@@ -40,8 +41,7 @@ public class CoordinateCalculatorService {
     }
 
     private Point createPointFrom(String pointInput) {
-        Pattern pattern = Pattern.compile(POINT_INPUT_REGEX);
-        Matcher matcher = pattern.matcher(pointInput);
+        Matcher matcher = POINT_INPUT_PATTERN.matcher(pointInput);
 
         if (matcher.find()) {
             int x = Integer.parseInt(matcher.group(1));
