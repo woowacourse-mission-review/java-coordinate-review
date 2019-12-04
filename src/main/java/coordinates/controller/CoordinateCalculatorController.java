@@ -19,9 +19,9 @@ public class CoordinateCalculatorController {
     }
 
     public void run() {
-        boolean isValidInput = true;
-        while (isValidInput) {
-            isValidInput = calculateWithPoints();
+        boolean isInvalidInput = true;
+        while (isInvalidInput) {
+            isInvalidInput = calculateWithPoints();
         }
     }
 
