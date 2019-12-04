@@ -41,7 +41,7 @@ public class Rectangle implements Figure {
 
     private <T> T calculateSideLength(Function<Point, T> functionOfGettingCoordinate
             , BinaryOperator<T> functionOfCalculatingPositiveDifference) {
-        return points.executeWith(functionOfGettingCoordinate)
+        return points.modifyUniqueWith(functionOfGettingCoordinate)
                 .stream()
                 .reduce(functionOfCalculatingPositiveDifference)
                 .orElseThrow(RuntimeException::new);

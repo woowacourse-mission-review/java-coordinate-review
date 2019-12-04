@@ -73,7 +73,7 @@ public class Points {
                 .anyMatch(point -> point.match(x, y));
     }
 
-    public <T> Set<T> executeWith(Function<Point, T> functionOfPoint) {
+    public <T> Set<T> modifyUniqueWith(Function<Point, T> functionOfPoint) {
         return innerPoints.stream()
                 .map(functionOfPoint)
                 .collect(Collectors.toSet());

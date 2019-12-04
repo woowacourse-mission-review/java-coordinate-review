@@ -64,7 +64,7 @@ class PointsTest {
 
     @Test
     void executeWith() {
-        Set<Integer> pointSet = points.executeWith(Point::getX);
+        Set<Integer> pointSet = points.modifyUniqueWith(Point::getX);
 
         assertThat(pointSet.size()).isEqualTo(2);
         assertThat(pointSet.contains(1)).isTrue();
