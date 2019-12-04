@@ -43,8 +43,7 @@ public class Points {
     }
 
     public boolean contains(final int x, final int y) {
-        return innerPoints.stream()
-                .anyMatch(point -> point.match(x, y));
+        return innerPoints.contains(Point.of(x, y));
     }
 
     public <T> Set<T> modifyUniqueWith(Function<Point, T> functionOfPoint) {
