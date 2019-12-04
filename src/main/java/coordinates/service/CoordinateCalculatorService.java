@@ -20,6 +20,8 @@ public class CoordinateCalculatorService {
     private static final String POINT_DELIMITER = "-";
     private static final String BLANK = " ";
     private static final String EMPTY = "";
+    private static final int GROUP_INDEX_OF_X_COORDINATE = 1;
+    private static final int GROUP_INDEX_OF_Y_COORDINATE = 2;
 
     public Points parsePointsInput(String pointsInput) {
         Matcher matcher = POINTS_INPUT_PATTERN.matcher(pointsInput);
@@ -44,8 +46,8 @@ public class CoordinateCalculatorService {
         Matcher matcher = POINT_INPUT_PATTERN.matcher(pointInput);
 
         if (matcher.find()) {
-            int x = Integer.parseInt(matcher.group(1));
-            int y = Integer.parseInt(matcher.group(2));
+            int x = Integer.parseInt(matcher.group(GROUP_INDEX_OF_X_COORDINATE));
+            int y = Integer.parseInt(matcher.group(GROUP_INDEX_OF_Y_COORDINATE));
 
             return Point.of(x, y);
         }
