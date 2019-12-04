@@ -24,8 +24,8 @@ class XCoordinateTest {
 
     @Test
     void create_OutOfCoordinateBoundException() {
-        assertThrows(OutOfXCoordinateBoundException.class, () -> XCoordinate.from(0));
-        Exception exception = assertThrows(OutOfXCoordinateBoundException.class, () -> XCoordinate.from(25));
+        assertThrows(OutOfXCoordinateBoundException.class, () -> XCoordinate.from(XCoordinate.LOWER_BOUND - 1));
+        Exception exception = assertThrows(OutOfXCoordinateBoundException.class, () -> XCoordinate.from(XCoordinate.UPPER_BOUND + 1));
 
         assertThat(exception.getMessage()).isEqualTo(OutOfXCoordinateBoundException.OUT_OF_X_COORDINATE_BOUND_MESSAGE);
     }
