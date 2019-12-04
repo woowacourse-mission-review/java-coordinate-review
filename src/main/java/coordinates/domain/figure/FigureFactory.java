@@ -23,12 +23,12 @@ public class FigureFactory {
         return LazyHolder.INSTANCE;
     }
 
-    private static class LazyHolder {
-        private static final FigureFactory INSTANCE = new FigureFactory();
-    }
-
     public Figure create(final Points points) {
         Function<Points, Figure> figureCreator = FIGURE_CREATORS.get(points.size());
         return figureCreator.apply(points);
+    }
+
+    private static class LazyHolder {
+        private static final FigureFactory INSTANCE = new FigureFactory();
     }
 }
