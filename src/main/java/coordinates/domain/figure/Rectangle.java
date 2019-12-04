@@ -39,8 +39,8 @@ public class Rectangle implements Figure {
         return distanceOfX.multiply(distanceOfY);
     }
 
-    private <T> T calculateSideLength(Function<Point, T> functionOfGettingCoordinate
-            , BinaryOperator<T> functionOfCalculatingPositiveDifference) {
+    private UnitCoordinate calculateSideLength(Function<Point, UnitCoordinate> functionOfGettingCoordinate
+            , BinaryOperator<UnitCoordinate> functionOfCalculatingPositiveDifference) {
         return points.modifyUniqueWith(functionOfGettingCoordinate)
                 .stream()
                 .reduce(functionOfCalculatingPositiveDifference)
