@@ -80,4 +80,11 @@ public class Triangle implements Figure {
                 .reduce((distance1, distance2) -> distance1 * distance2)
                 .orElseThrow(RuntimeException::new);
     }
+
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "points=" + points +
+                '}';
+    }
 }

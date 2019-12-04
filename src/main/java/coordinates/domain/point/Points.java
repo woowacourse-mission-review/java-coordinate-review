@@ -51,4 +51,11 @@ public class Points {
                 .map(functionOfPoint)
                 .collect(Collectors.toSet());
     }
+
+    @Override
+    public String toString() {
+        return "Points{" +
+                "innerPoints=" + innerPoints +
+                '}';
+    }
 }

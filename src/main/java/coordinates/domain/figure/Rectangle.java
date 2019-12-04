@@ -68,4 +68,11 @@ public class Rectangle implements Figure {
                 .reduce(functionOfCalculatingPositiveDifference)
                 .orElseThrow(RuntimeException::new);
     }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "points=" + points +
+                '}';
+    }
 }

@@ -44,4 +44,11 @@ public class UnitCoordinate {
     public int hashCode() {
         return Objects.hash(value);
     }
+
+    @Override
+    public String toString() {
+        return "UnitCoordinate{" +
+                "value=" + value +
+                '}';
+    }
 }

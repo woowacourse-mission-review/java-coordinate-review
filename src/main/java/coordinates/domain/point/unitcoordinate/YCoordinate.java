@@ -22,4 +22,11 @@ public class YCoordinate extends UnitCoordinate {
     public static YCoordinate from(final int y) {
         return new YCoordinate(y);
     }
+
+    @Override
+    public String toString() {
+        return "YCoordinate{" +
+                "value=" + super.value() +
+                '}';
+    }
 }

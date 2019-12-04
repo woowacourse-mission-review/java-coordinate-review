@@ -36,6 +36,17 @@ public class Point {
         return yCoordinate;
     }
 
+    public boolean match(final int x, final int y) {
+        return xCoordinate.match(x) && yCoordinate.match(y);
+    }
+
+    public double calculateDistanceTo(final Point point) {
+        final UnitCoordinate differenceBetweenX = this.xCoordinate.calculatePositiveDifference(point.xCoordinate);
+        final UnitCoordinate differenceBetweenY = this.yCoordinate.calculatePositiveDifference(point.yCoordinate);
+
+        return Math.sqrt(differenceBetweenX.square() + differenceBetweenY.square());
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
@@ -50,14 +61,11 @@ public class Point {
         return Objects.hash(xCoordinate, yCoordinate);
     }
 
-    public boolean match(final int x, final int y) {
-        return xCoordinate.match(x) && yCoordinate.match(y);
-    }
-
-    public double calculateDistanceTo(final Point point) {
-        final UnitCoordinate differenceBetweenX = this.xCoordinate.calculatePositiveDifference(point.xCoordinate);
-        final UnitCoordinate differenceBetweenY = this.yCoordinate.calculatePositiveDifference(point.yCoordinate);
-
-        return Math.sqrt(differenceBetweenX.square() + differenceBetweenY.square());
+    @Override
+    public String toString() {
+        return "Point{" +
+                "xCoordinate=" + xCoordinate +
+                ", yCoordinate=" + yCoordinate +
+                '}';
     }
 }

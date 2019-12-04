@@ -34,4 +34,11 @@ public class Line implements Figure {
 
         return point1.calculateDistanceTo(point2);
     }
+
+    @Override
+    public String toString() {
+        return "Line{" +
+                "points=" + points +
+                '}';
+    }
 }
