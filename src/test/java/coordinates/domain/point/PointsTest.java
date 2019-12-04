@@ -1,7 +1,6 @@
 package coordinates.domain.point;
 
 import coordinates.exception.DuplicatePointsException;
-import coordinates.exception.NotRectangleException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -33,14 +32,6 @@ class PointsTest {
         Exception exception = assertThrows(DuplicatePointsException.class, () -> Points.from(pointList));
 
         assertThat(exception.getMessage()).isEqualTo(DuplicatePointsException.DUPLICATE_POINTS_MESSAGE);
-    }
-
-    @Test
-    void create_NotRectangleException() {
-        List<Point> pointList = Arrays.asList(Point.of(1, 2), Point.of(3, 2), Point.of(1, 4), Point.of(5, 4));
-        Exception exception = assertThrows(NotRectangleException.class, () -> Points.from(pointList));
-
-        assertThat(exception.getMessage()).isEqualTo(NotRectangleException.NOT_RECTANGLE_MESSAGE);
     }
 
     @Test
