@@ -1,6 +1,5 @@
 package coordinate.domain.figure;
 
-import coordinate.domain.point.Point;
 import coordinate.domain.point.PointGroup;
 
 public class Line extends AbstractFigure {
@@ -18,9 +17,7 @@ public class Line extends AbstractFigure {
 
     @Override
     public double area() {
-        final Point point1 = pointGroup.get(FIRST_POINT_INDEX);
-        final Point point2 = pointGroup.get(SECOND_POINT_INDEX);
-        return point1.distanceTo(point2);
+        return pointGroup.calculateDistance(FIRST_POINT_INDEX, SECOND_POINT_INDEX);
     }
 
     @Override

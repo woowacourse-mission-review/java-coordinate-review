@@ -1,11 +1,14 @@
 package coordinate.domain.figure;
 
-import coordinate.domain.point.Point;
 import coordinate.domain.point.PointGroup;
 
 public class Rectangle extends AbstractFigure {
     static final int SIZE_OF_POINTS = 4;
     static final String NOT_RECTANGLE_EXCEPTION_MESSAGE = "직사각형이 아닙니다";
+    private static final int LEFT_BOTTOM = 0;
+    private static final int RIGHT_BOTTOM = 1;
+    private static final int LEFT_TOP = 2;
+    private static final int RIGHT_TOP = 3;
 
     public Rectangle(final PointGroup pointGroup) {
         super(pointGroup, SIZE_OF_POINTS);
@@ -13,13 +16,11 @@ public class Rectangle extends AbstractFigure {
     }
 
     private void validateRectangle(final PointGroup pointGroup) {
-        final Point leftBottom = pointGroup.get(0);
-        final Point leftTop = pointGroup.get(2);
-        final Point rightBottom = pointGroup.get(1);
-        final Point rightTop = pointGroup.get(3);
+        final double distanceOfLeft = pointGroup.calculateDistance(LEFT_BOTTOM, LEFT_TOP);
+        final double distanceOfRight = pointGroup.calculateDistance(RIGHT_BOTTOM, RIGHT_TOP);
 
-        double diagonal1 = Math.hypot(leftBottom.distanceTo(leftTop), leftBottom.distanceTo(leftTop));
-        double diagonal2 = Math.hypot(rightBottom.distanceTo(rightTop), rightBottom.distanceTo(rightTop));
+        final double diagonal1 = Math.hypot(distanceOfLeft, distanceOfLeft);
+        final double diagonal2 = Math.hypot(distanceOfRight, distanceOfRight);
         if (diagonal1 != diagonal2) {
             throw new IllegalArgumentException(NOT_RECTANGLE_EXCEPTION_MESSAGE);
         }
@@ -31,8 +32,8 @@ public class Rectangle extends AbstractFigure {
 
     @Override
     public double area() {
-        final double ySideLength = pointGroup.get(0).distanceYTo(pointGroup.get(3));
-        final double xSideLength = pointGroup.get(1).distanceXTo(pointGroup.get(2));
+        final double xSideLength = pointGroup.calculateDistanceX(LEFT_BOTTOM, RIGHT_TOP);
+        final double ySideLength = pointGroup.calculateDistanceY(RIGHT_BOTTOM, RIGHT_TOP);
         return Math.abs(xSideLength * ySideLength);
     }
 

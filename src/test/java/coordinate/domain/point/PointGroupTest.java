@@ -61,4 +61,43 @@ class PointGroupTest {
 
         assertThat(exception.getMessage()).isEqualTo(DUPLICATED_POINT_EXCEPTION_MESSAGE);
     }
+
+    @Test
+    void calculateDistance() {
+        // given
+        final PointGroup pointGroup = PointGroup.of(List.of(Point.of(10, 10), Point.of(10, 12)));
+        final double expected = pointGroup.get(0).distanceTo(pointGroup.get(1));
+
+        // when
+        final double actual = pointGroup.calculateDistance(0, 1);
+
+        // then
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    void calculateDistanceX() {
+        // given
+        final PointGroup pointGroup = PointGroup.of(List.of(Point.of(10, 10), Point.of(13, 12)));
+        final double expected = 3;
+
+        // when
+        final double actual = pointGroup.calculateDistanceX(0, 1);
+
+        // then
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    void calculateDistanceY() {
+        // given
+        final PointGroup pointGroup = PointGroup.of(List.of(Point.of(10, 10), Point.of(13, 12)));
+        final double expected = 2;
+
+        // when
+        final double actual = pointGroup.calculateDistanceY(0, 1);
+
+        // then
+        assertThat(actual).isEqualTo(expected);
+    }
 }

@@ -38,6 +38,24 @@ public class PointGroup {
         return new PointGroup(points);
     }
 
+    public double calculateDistance(final int firstPointIndex, final int secondPointIndex) {
+        final Point point1 = points.get(firstPointIndex);
+        final Point point2 = points.get(secondPointIndex);
+        return point1.distanceTo(point2);
+    }
+
+    public double calculateDistanceX(final int firstPointIndex, final int secondPointIndex) {
+        final Point point1 = points.get(firstPointIndex);
+        final Point point2 = points.get(secondPointIndex);
+        return point1.distanceXTo(point2);
+    }
+
+    public double calculateDistanceY(final int firstPointIndex, final int secondPointIndex) {
+        final Point point1 = points.get(firstPointIndex);
+        final Point point2 = points.get(secondPointIndex);
+        return point1.distanceYTo(point2);
+    }
+
     public Point get(final int index) {
         return points.get(index);
     }

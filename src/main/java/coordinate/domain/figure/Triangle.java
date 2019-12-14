@@ -1,6 +1,5 @@
 package coordinate.domain.figure;
 
-import coordinate.domain.point.Point;
 import coordinate.domain.point.PointGroup;
 
 public class Triangle extends AbstractFigure {
@@ -28,13 +27,9 @@ public class Triangle extends AbstractFigure {
      */
     @Override
     public double area() {
-        final Point point1 = pointGroup.get(0);
-        final Point point2 = pointGroup.get(1);
-        final Point point3 = pointGroup.get(2);
-
-        final double a = point1.distanceTo(point2);
-        final double b = point2.distanceTo(point3);
-        final double c = point3.distanceTo(point1);
+        final double a = pointGroup.calculateDistance(0, 1);
+        final double b = pointGroup.calculateDistance(0, 2);
+        final double c = pointGroup.calculateDistance(1, 2);
 
         final double s = (a + b + c) / 2;
 
