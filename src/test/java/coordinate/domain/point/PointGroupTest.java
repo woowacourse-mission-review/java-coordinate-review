@@ -14,15 +14,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 class PointGroupTest {
 
     @Test
-    void 생성_정상입력_확인() {
-        final PointGroup pointGroup1 = PointGroup.of(List.of(Point.of(10, 10), Point.of(10, 12)));
-        final PointGroup pointGroup2 = PointGroup.of(List.of(Point.of(10, 10), Point.of(10, 11), Point.of(11, 12)));
-
-        assertTrue(pointGroup1.matchSize(2));
-        assertTrue(pointGroup2.matchSize(3));
-    }
-
-    @Test
     void emptyException() {
         IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> PointGroup.of(Collections.emptyList()));
 
@@ -31,9 +22,11 @@ class PointGroupTest {
 
     @Test
     void matchSizeTest() {
-        final PointGroup pointGroup = PointGroup.of(List.of(Point.of(10, 10)));
+        final PointGroup pointGroup1 = PointGroup.of(List.of(Point.of(10, 10), Point.of(10, 12)));
+        final PointGroup pointGroup2 = PointGroup.of(List.of(Point.of(10, 10), Point.of(10, 11), Point.of(11, 12)));
 
-        assertTrue(pointGroup.matchSize(1));
+        assertTrue(pointGroup1.matchSize(2));
+        assertTrue(pointGroup2.matchSize(3));
     }
 
     @Test
