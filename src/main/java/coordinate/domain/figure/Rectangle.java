@@ -1,5 +1,6 @@
 package coordinate.domain.figure;
 
+import coordinate.domain.point.Point;
 import coordinate.domain.point.PointGroup;
 
 public class Rectangle extends AbstractFigure {
@@ -12,8 +13,13 @@ public class Rectangle extends AbstractFigure {
     }
 
     private void validateRectangle(final PointGroup pointGroup) {
-        double diagonal1 = Math.hypot(pointGroup.get(0).distanceTo(pointGroup.get(2)), pointGroup.get(0).distanceTo(pointGroup.get(2)));
-        double diagonal2 = Math.hypot(pointGroup.get(1).distanceTo(pointGroup.get(3)), pointGroup.get(1).distanceTo(pointGroup.get(3)));
+        final Point leftBottom = pointGroup.get(0);
+        final Point leftTop = pointGroup.get(2);
+        final Point rightBottom = pointGroup.get(1);
+        final Point rightTop = pointGroup.get(3);
+
+        double diagonal1 = Math.hypot(leftBottom.distanceTo(leftTop), leftBottom.distanceTo(leftTop));
+        double diagonal2 = Math.hypot(rightBottom.distanceTo(rightTop), rightBottom.distanceTo(rightTop));
         if (diagonal1 != diagonal2) {
             throw new IllegalArgumentException(NOT_RECTANGLE_EXCEPTION_MESSAGE);
         }
