@@ -9,6 +9,7 @@ import static coordinate.domain.point.PointGroup.DUPLICATED_POINT_EXCEPTION_MESS
 import static coordinate.domain.point.PointGroup.EMPTY_EXCEPTION_MESSAGE;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PointGroupTest {
 
@@ -17,8 +18,8 @@ class PointGroupTest {
         final PointGroup pointGroup1 = PointGroup.of(List.of(Point.of(10, 10), Point.of(10, 12)));
         final PointGroup pointGroup2 = PointGroup.of(List.of(Point.of(10, 10), Point.of(10, 11), Point.of(11, 12)));
 
-        assertThat(pointGroup1.matchSize(2)).isTrue();
-        assertThat(pointGroup2.matchSize(3)).isTrue();
+        assertTrue(pointGroup1.matchSize(2));
+        assertTrue(pointGroup2.matchSize(3));
     }
 
     @Test
@@ -32,7 +33,7 @@ class PointGroupTest {
     void matchSizeTest() {
         final PointGroup pointGroup = PointGroup.of(List.of(Point.of(10, 10)));
 
-        assertThat(pointGroup.matchSize(1)).isTrue();
+        assertTrue(pointGroup.matchSize(1));
     }
 
     @Test

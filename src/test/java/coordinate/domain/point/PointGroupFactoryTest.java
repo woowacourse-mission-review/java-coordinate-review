@@ -7,6 +7,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 import static coordinate.domain.point.PointGroupFactory.NOT_VALID_INPUT_EXCEPTION_MESSAGE;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class PointGroupFactoryTest {
     private final PointGroupFactory factory = new PointGroupFactory();
@@ -16,8 +17,8 @@ class PointGroupFactoryTest {
         final PointGroup pointGroup1 = factory.create("(10,10)-(14,15)");
         final PointGroup pointGroup2 = factory.create("(10,10)-(14,15)-(11,19)");
 
-        assertThat(pointGroup1.matchSize(2)).isTrue();
-        assertThat(pointGroup2.matchSize(3)).isTrue();
+        assertTrue(pointGroup1.matchSize(2));
+        assertTrue(pointGroup2.matchSize(3));
     }
 
     @ParameterizedTest

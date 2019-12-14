@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import static coordinate.domain.point.Coordinate.MAX_VALUE;
 import static coordinate.domain.point.Coordinate.MIN_VALUE;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
+import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class CoordinateTest {
@@ -20,7 +21,7 @@ class CoordinateTest {
         Coordinate coordinate1 = Coordinate.of(23);
         Coordinate coordinate2 = Coordinate.of(23);
 
-        assertThat(coordinate1 == coordinate2).isTrue();
+        assertSame(coordinate1, coordinate2);
     }
 
     @Test
