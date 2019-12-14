@@ -26,11 +26,15 @@ public class Point {
     }
 
     public double distanceXTo(final Point other) {
-        return this.getX() - other.getX();
+        return distanceAbs(this.getX(), other.getX());
     }
 
     public double distanceYTo(final Point other) {
-        return this.getY() - other.getY();
+        return distanceAbs(this.getY(), other.getY());
+    }
+
+    private int distanceAbs(final int x1, final int x2) {
+        return Math.abs(x1 - x2);
     }
 
     public int getX() {
